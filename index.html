@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fadez & Bladez Barbershop | Riverwood</title>
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- GSAP for Smooth Fluid Animations -->
+
+    <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <!-- Lucide Icons -->
@@ -17,12 +17,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #0b0d12;
+            background: #090b10;
             color: #f3f4f6;
             overflow-x: hidden;
             min-height: 100vh;
@@ -32,170 +32,193 @@
             font-family: 'Syne', sans-serif;
         }
 
-        /* TRUE LIQUID GLASS UI ELEMENTS */
+        /* Glassmorphic Cards Styling */
         .glass-card {
             background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
-        .glass-gold {
-            background: rgba(212, 175, 55, 0.08);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15),
-                        inset 0 1px 1px rgba(255, 230, 150, 0.3);
+        /* Animated Barber Pole Light Bar */
+        .barber-pole-bar {
+            background: repeating-linear-gradient(
+                -45deg,
+                #dc2626,
+                #dc2626 12px,
+                #ffffff 12px,
+                #ffffff 24px,
+                #2563eb 24px,
+                #2563eb 36px,
+                #ffffff 36px,
+                #ffffff 48px
+            );
+            background-size: 200% 200%;
+            animation: barberMove 4s linear infinite;
         }
 
-        /* Ambient Fluid Glow Orbs */
-        .glow-orb-1 {
+        @keyframes barberMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        /* Soft Background Glow Orbs */
+        .glow-orb {
             position: fixed;
-            top: -10%;
-            left: -10%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
+            filter: blur(100px);
             pointer-events: none;
             z-index: 0;
-        }
-
-        .glow-orb-2 {
-            position: fixed;
-            bottom: -10%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Blade Shiny Effect */
-        .blade-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .blade-hover:active {
-            transform: scale(0.98);
         }
     </style>
 </head>
 <body class="relative flex flex-col justify-between selection:bg-amber-500/30">
 
-    <!-- FLUID BACKGROUND GLOW LIGHTS -->
-    <div class="glow-orb-1 animate-pulse"></div>
-    <div class="glow-orb-2"></div>
+    <!-- BARBER POLE TOP ACCENT STRIP -->
+    <div class="w-full h-2.5 barber-pole-bar sticky top-0 z-50 shadow-lg"></div>
 
-    <!-- LIQUID GLASS SCISSORS TRANSITION OVERLAY -->
-    <div id="blade-overlay-left" class="fixed top-0 left-0 w-1/2 h-full bg-neutral-950/90 backdrop-blur-2xl z-50 transform -translate-x-full border-r border-amber-500/40 flex items-center justify-end pr-6">
+    <!-- BACKGROUND GLOWS -->
+    <div class="glow-orb w-96 h-96 bg-amber-500/10 -top-20 -left-20 animate-pulse"></div>
+    <div class="glow-orb w-96 h-96 bg-blue-600/10 bottom-0 -right-20"></div>
+
+    <!-- SCISSORS TRANSITION OVERLAY -->
+    <div id="blade-overlay-left" class="fixed top-0 left-0 w-1/2 h-full bg-neutral-950/95 backdrop-blur-2xl z-50 transform -translate-x-full border-r border-amber-500/40 flex items-center justify-end pr-6">
         <i data-lucide="scissors" class="w-10 h-10 text-amber-400 rotate-90"></i>
     </div>
-    <div id="blade-overlay-right" class="fixed top-0 right-0 w-1/2 h-full bg-neutral-950/90 backdrop-blur-2xl z-50 transform translate-x-full border-l border-amber-500/40 flex items-center justify-start pl-6">
+    <div id="blade-overlay-right" class="fixed top-0 right-0 w-1/2 h-full bg-neutral-950/95 backdrop-blur-2xl z-50 transform translate-x-full border-l border-amber-500/40 flex items-center justify-start pl-6">
         <i data-lucide="scissors" class="w-10 h-10 text-amber-400 -rotate-90"></i>
     </div>
 
-    <!-- GLASS HEADER -->
-    <header class="sticky top-4 left-0 right-0 z-40 px-4 max-w-md mx-auto">
+    <!-- HEADER / NAVIGATION -->
+    <header class="relative z-40 px-4 max-w-md mx-auto pt-3">
         <div class="glass-card rounded-2xl p-3 px-5 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <span class="text-[11px] font-bold text-emerald-400 tracking-wider uppercase">Open Today</span>
+                <span class="text-[11px] font-bold text-emerald-400 tracking-wider uppercase">Open Now</span>
             </div>
 
-            <div class="text-center">
+            <div class="text-center flex items-center gap-2">
+                <i data-lucide="scissors" class="w-4 h-4 text-amber-400"></i>
                 <h1 class="text-xs font-black tracking-widest text-white uppercase">Fadez & Bladez</h1>
             </div>
 
             <button onclick="togglePage()" class="p-2 rounded-xl bg-white/10 border border-white/20 text-amber-400 hover:bg-amber-500/20 transition-all">
-                <i data-lucide="scissors" class="w-4 h-4"></i>
+                <i data-lucide="menu" class="w-4 h-4"></i>
             </button>
         </div>
     </header>
 
-    <!-- MAIN APP CONTAINER -->
-    <main class="relative z-10 px-4 max-w-md mx-auto w-full flex-1 pt-6 pb-12">
+    <!-- MAIN MOBILE CONTAINER -->
+    <main class="relative z-10 px-4 max-w-md mx-auto w-full flex-1 pt-4 pb-12 space-y-6">
 
         <!-- ================= PAGE 1: HOME ================= -->
         <div id="page-home" class="space-y-6">
             
-            <!-- BRANDING & LOGO HERO -->
-            <div class="glass-card p-8 rounded-3xl text-center relative overflow-hidden space-y-4">
+            <!-- HERO SECTION -->
+            <div class="glass-card p-6 rounded-3xl text-center relative overflow-hidden space-y-4 border-amber-500/20">
                 
-                <!-- Crossed Blades Icon Graphic -->
-                <div class="w-16 h-16 mx-auto rounded-full glass-gold flex items-center justify-center text-amber-400 mb-2">
-                    <i data-lucide="scissors" class="w-8 h-8"></i>
-                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20 inline-block">
+                    Premium Barbershop
+                </span>
 
                 <h2 class="text-3xl font-extrabold text-white leading-tight uppercase tracking-tight">
                     Fadez & Bladez<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500">Barbershop</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 via-amber-200 to-amber-400">Barbershop</span>
                 </h2>
 
                 <p class="text-xs text-neutral-300 font-light leading-relaxed max-w-xs mx-auto">
-                    Riverwood’s finest cuts, fades & traditional razor shaves. No appointments needed—walk in anytime.
+                    Precision cuts. Modern styles. Classic techniques. Riverwood’s premier grooming experience.
                 </p>
 
+                <!-- BARBER CHAIR VIBE BANNER -->
+                <div class="relative w-full h-36 rounded-2xl overflow-hidden border border-white/10 my-2 group">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800" alt="Barbershop Chair" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+                    <div class="absolute bottom-3 left-3 text-left">
+                        <span class="text-[10px] font-bold text-amber-300 uppercase tracking-wider">Riverwood, Sydney</span>
+                        <p class="text-xs font-semibold text-white">Walk-Ins Always Welcome</p>
+                    </div>
+                </div>
+
                 <!-- SWITCH TO MENU BUTTON -->
-                <div class="pt-2">
-                    <button onclick="navigateTo('menu')" class="glass-gold blade-hover w-full py-4 rounded-2xl text-amber-300 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2">
-                        <span>View Prices & Services</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
+                <button onclick="navigateTo('menu')" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-extrabold text-xs tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg hover:brightness-110 transition-all">
+                    <i data-lucide="scissors" class="w-4 h-4"></i>
+                    <span>Explore Services & Prices</span>
+                </button>
+            </div>
+
+            <!-- OUR SERVICES QUICK PREVIEW -->
+            <div class="space-y-3">
+                <div class="flex justify-between items-end px-1">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-neutral-300">Our Services</h3>
+                    <button onclick="navigateTo('menu')" class="text-[11px] text-amber-400 font-semibold hover:underline">View All →</button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="glass-card p-4 rounded-2xl text-center space-y-2 border-white/10 hover:border-amber-400/40 transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400">
+                            <i data-lucide="scissors" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-white">Haircuts & Fades</h4>
+                        <p class="text-[10px] text-neutral-400">From $35</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl text-center space-y-2 border-white/10 hover:border-amber-400/40 transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-white">Beard Trim</h4>
+                        <p class="text-[10px] text-neutral-400">From $30</p>
+                    </div>
                 </div>
             </div>
 
             <!-- LOCATION & GOOGLE MAP CARD -->
-            <div class="glass-card p-5 rounded-3xl space-y-4">
+            <div class="glass-card p-5 rounded-3xl space-y-4 border-white/10">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
                         <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Find Us</h3>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Find Us in Riverwood</h3>
                     </div>
-                    <span class="text-[10px] text-amber-400/80 font-mono">220 Belmore Rd</span>
+                    <span class="text-[10px] text-amber-400 font-mono">NSW 2210</span>
                 </div>
 
-                <!-- Google Maps Embed -->
-                <div class="w-full h-48 rounded-2xl overflow-hidden border border-white/10 relative">
+                <!-- Embedded Google Map -->
+                <div class="w-full h-44 rounded-2xl overflow-hidden border border-white/10 relative">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.222472911762!2d151.0505191!3d-33.9482326!2m3!1f0!0!f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b936d52d9a3b%3A0x6bd7084511d73a70!2s220%20Belmore%20Rd%2C%20Riverwood%20NSW%202210!5e0!3m2!1sen!2sau!4v1710000000000" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
-                <div class="pt-1 flex gap-2">
-                    <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" class="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-center text-xs font-bold text-white hover:bg-white/10 flex items-center justify-center gap-2">
-                        <i data-lucide="navigation" class="w-3.5 h-3.5 text-amber-400"></i> Get Directions
-                    </a>
-                </div>
+                <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" class="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-center text-xs font-bold text-white hover:bg-white/10 flex items-center justify-center gap-2 transition-all">
+                    <i data-lucide="navigation" class="w-3.5 h-3.5 text-amber-400"></i> 220 Belmore Rd, Riverwood
+                </a>
             </div>
 
         </div>
 
         <!-- ================= PAGE 2: FULL PRICE MENU ================= -->
-        <div id="page-menu" class="hidden space-y-6">
+        <div id="page-menu" class="hidden space-y-5">
             
             <div class="flex items-center justify-between px-1">
                 <div>
-                    <h2 class="text-2xl font-extrabold text-white tracking-wide uppercase">Price List</h2>
-                    <p class="text-xs text-neutral-400">All standard services & rates</p>
+                    <h2 class="text-2xl font-extrabold text-white tracking-wide uppercase">Service Menu</h2>
+                    <p class="text-xs text-neutral-400">Quality cuts & sharp looks</p>
                 </div>
-                <button onclick="navigateTo('home')" class="text-xs text-amber-400 flex items-center gap-1 font-semibold glass-card px-3 py-1.5 rounded-xl">
+                <button onclick="navigateTo('home')" class="text-xs text-amber-400 flex items-center gap-1 font-semibold glass-card px-3 py-1.5 rounded-xl border-white/10">
                     <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back
                 </button>
             </div>
 
             <!-- CATEGORY 1: HAIRCUTS -->
-            <div class="space-y-3">
-                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest pl-1">Hair & Fades</span>
+            <div class="space-y-2.5">
+                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest pl-1">Haircuts & Fades</span>
                 
                 <div class="glass-card p-4 rounded-2xl flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-white">Skin Fade</h4>
-                        <p class="text-[11px] text-neutral-400">Zero foil finish & styling</p>
+                        <p class="text-[11px] text-neutral-400">Precision zero fade & style</p>
                     </div>
                     <span class="text-base font-black text-amber-400">$40</span>
                 </div>
@@ -203,7 +226,7 @@
                 <div class="glass-card p-4 rounded-2xl flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-white">Standard Cut</h4>
-                        <p class="text-[11px] text-neutral-400">Scissor or clipper finish</p>
+                        <p class="text-[11px] text-neutral-400">Classic scissor & clipper cut</p>
                     </div>
                     <span class="text-base font-black text-amber-400">$35</span>
                 </div>
@@ -211,20 +234,20 @@
                 <div class="glass-card p-4 rounded-2xl flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-white">Buzz Cut</h4>
-                        <p class="text-[11px] text-neutral-400">All over clipper cut</p>
+                        <p class="text-[11px] text-neutral-400">Uniform clipper cut & lineup</p>
                     </div>
                     <span class="text-base font-black text-amber-400">$25</span>
                 </div>
             </div>
 
             <!-- CATEGORY 2: BEARD -->
-            <div class="space-y-3 pt-2">
+            <div class="space-y-2.5 pt-2">
                 <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest pl-1">Beard & Shave</span>
                 
                 <div class="glass-card p-4 rounded-2xl flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-white">Beard Trim & Edge</h4>
-                        <p class="text-[11px] text-neutral-400">Razor sharp edge line up</p>
+                        <p class="text-[11px] text-neutral-400">Sharp razor edge line up</p>
                     </div>
                     <span class="text-base font-black text-amber-400">$30</span>
                 </div>
@@ -232,19 +255,19 @@
                 <div class="glass-card p-4 rounded-2xl flex justify-between items-center">
                     <div>
                         <h4 class="text-sm font-bold text-white">Hot Towel Shave</h4>
-                        <p class="text-[11px] text-neutral-400">Traditional razor shave</p>
+                        <p class="text-[11px] text-neutral-400">Traditional relaxing razor shave</p>
                     </div>
                     <span class="text-base font-black text-amber-400">$35</span>
                 </div>
             </div>
 
             <!-- CATEGORY 3: COMBOS -->
-            <div class="space-y-3 pt-2">
-                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest pl-1">Combos & Kids</span>
+            <div class="space-y-2.5 pt-2">
+                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest pl-1">Combos & Specials</span>
                 
-                <div class="glass-gold p-4 rounded-2xl flex justify-between items-center">
+                <div class="glass-card p-4 rounded-2xl flex justify-between items-center border-amber-400/40 bg-amber-400/5">
                     <div>
-                        <h4 class="text-sm font-bold text-amber-200">The Full Combo</h4>
+                        <h4 class="text-sm font-bold text-amber-300">The Full Combo</h4>
                         <p class="text-[11px] text-neutral-300">Skin Fade + Beard Trim + Hot Towel</p>
                     </div>
                     <span class="text-lg font-black text-amber-300">$65</span>
@@ -263,9 +286,12 @@
 
     </main>
 
+    <!-- BARBER POLE BOTTOM ACCENT STRIP -->
+    <div class="w-full h-2 barber-pole-bar"></div>
+
     <!-- FOOTER -->
-    <footer class="relative z-10 py-6 text-center text-neutral-500 text-[10px] tracking-widest uppercase">
-        <p>© 2026 FADEZ & BLADEZ BARBERSHOP</p>
+    <footer class="relative z-10 py-5 text-center text-neutral-500 text-[10px] tracking-widest uppercase bg-neutral-950/80 backdrop-blur-md">
+        <p>© 2026 FADEZ & BLADEZ BARBERSHOP • RIVERWOOD</p>
     </footer>
 
     <!-- INTERACTION & ANIMATION JS -->
@@ -276,7 +302,6 @@
         function navigateTo(target) {
             if (currentPage === target) return;
 
-            // GSAP Scissors Blade Transition
             const tl = gsap.timeline();
             tl.to("#blade-overlay-left", { x: "0%", duration: 0.25, ease: "power2.in" })
               .to("#blade-overlay-right", { x: "0%", duration: 0.25, ease: "power2.in" }, "<")
