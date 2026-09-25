@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FADEZ & BLADEZ BARBERSHOP | Riverwood</title>
-  <meta name="description" content="FADEZ & BLADEZ BARBERSHOP in Riverwood NSW. Precision Haircuts, Beard Sculpting, Deluxe Packages, Grooming Essentials, and Fine Fragrances. Look Good • Feel Sharp."/>
+  <meta name="description" content="FADEZ & BLADEZ BARBERSHOP in Riverwood NSW. Precision Haircuts, Beard Sculpting, Grooming Essentials, and Fine Fragrances. Look Good • Feel Sharp."/>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -22,13 +22,13 @@
           colors: {
             brand: {
               black: "#0a0b0d",
-              dark: "#111317",
-              card: "#16181d",
-              gold: "#d4af37",
-              goldHover: "#ebd58e",
-              goldDark: "#8f7420",
-              text: "#e2e8f0",
-              muted: "#8a99ad"
+              dark: "#0f1113",
+              card: "#131618",
+              gold: "#c9a961",
+              goldHover: "#d4b570",
+              goldDark: "#9d7d47",
+              text: "#e8e8e8",
+              muted: "#8a8a8a"
             }
           },
           fontFamily: {
@@ -42,29 +42,28 @@
   <style>
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a0b0d; }
-    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #c9a961; border-radius: 3px; }
     .gold-glow {
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+      box-shadow: 0 0 20px rgba(201, 169, 97, 0.15);
     }
     .gold-glow:hover {
-      box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 0 30px rgba(201, 169, 97, 0.25);
+    }
+    .gradient-gold {
+      background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(201, 169, 97, 0.05));
     }
   </style>
 </head>
 <body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
 
   <!-- HEADER / NAVBAR -->
-  <header class="sticky top-0 z-50 bg-brand-black/95 backdrop-blur-md border-b border-brand-gold/30 shadow-xl">
+  <header class="sticky top-0 z-50 bg-brand-black/98 backdrop-blur-md border-b border-brand-gold/20 shadow-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- LOGO & BRAND NAME -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#home" class="flex items-center gap-3 group">
         <div class="relative w-12 h-12 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
-          <!-- Logo Image with Fallback -->
-          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
-          <div class="hidden w-full h-full bg-brand-black items-center justify-center text-brand-gold">
-            <span class="material-symbols-outlined text-xl">content_cut</span>
-          </div>
+          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
         </div>
         <div class="flex flex-col">
           <span class="font-heading font-bold text-base sm:text-lg tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
@@ -74,13 +73,13 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-brand-muted">
+        <a href="#services" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
+          <span class="material-symbols-outlined text-base text-brand-gold">content_cut</span>
+          <span>Services</span>
+        </a>
         <a href="#prices" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
           <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
           <span>Prices</span>
-        </a>
-        <a href="#shop" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
-          <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
-          <span>Items</span>
         </a>
         <a href="#fragrances" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
           <span class="material-symbols-outlined text-base text-brand-gold">air</span>
@@ -106,18 +105,15 @@
   <main class="flex-grow">
 
     <!-- HERO SECTION (HOME) -->
-    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-brand-dark to-brand-black border-b border-white/5">
+    <section id="home" class="relative py-20 lg:py-28 overflow-hidden gradient-gold border-b border-brand-gold/10">
       <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
         
         <!-- Big Display Logo Header -->
         <div class="mx-auto w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-brand-gold p-1 bg-black mb-8 gold-glow inline-block">
-          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
-          <div class="hidden w-full h-full bg-brand-card rounded-full items-center justify-center text-brand-gold">
-            <span class="material-symbols-outlined text-5xl">content_cut</span>
-          </div>
+          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full"/>
         </div>
 
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
           <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
           220 Belmore Rd, Riverwood NSW
         </div>
@@ -145,12 +141,69 @@
       </div>
     </section>
 
-    <!-- SECTION 1: PRICES & SERVICES -->
-    <section id="prices" class="py-20 bg-brand-black">
+    <!-- SECTION 1: SERVICES OVERVIEW -->
+    <section id="services" class="py-20 bg-brand-black border-b border-brand-gold/10">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white mb-4">Our Services</h2>
+          <div class="w-12 h-1 bg-brand-gold mx-auto rounded-full mb-6"></div>
+          <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
+            At FADEZ & BLADEZ, we deliver precision haircuts, expert beard sculpting, and premium grooming services. Every service is crafted with meticulous attention to detail, ensuring you look impeccable and feel confident.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
+            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-3xl text-brand-gold">content_cut</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Precision Haircuts</h3>
+            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+              Expert haircuts tailored to your style. From classic cuts to modern designs, we ensure every fade is perfect.
+            </p>
+          </div>
+
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
+            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-3xl text-brand-gold">face</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Beard Sculpting</h3>
+            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+              Premium beard care and sculpting. Shape, trim, and maintain your beard with professional expertise.
+            </p>
+          </div>
+
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
+            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-3xl text-brand-gold">star</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Luxury Grooming</h3>
+            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+              Complete grooming packages including hair coloring, styling, and premium treatments.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 border border-brand-gold/20 text-center">
+          <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Ready to Transform Your Look?</p>
+          <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+            <span class="material-symbols-outlined text-lg">call</span>
+            Call Us Today: 0413 651 248
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: PRICES & SERVICES -->
+    <section id="prices" class="py-20 bg-brand-dark border-t border-brand-gold/10">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-xl mx-auto mb-14">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Services & Prices</h2>
+          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Pricing</h2>
           <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
         </div>
 
@@ -158,7 +211,7 @@
           
           <!-- Hair Services -->
           <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-            <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
               <span class="material-symbols-outlined text-brand-gold text-2xl">content_cut</span>
               <h3 class="font-heading text-lg font-bold uppercase text-white">Haircuts</h3>
             </div>
@@ -202,7 +255,7 @@
           <div class="space-y-8">
             
             <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-              <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">face</span>
                 <h3 class="font-heading text-lg font-bold uppercase text-white">Beard Care</h3>
               </div>
@@ -223,9 +276,9 @@
             </div>
 
             <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-              <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">star</span>
-                <h3 class="font-heading text-lg font-bold uppercase text-white">Packages & Wax</h3>
+                <h3 class="font-heading text-lg font-bold uppercase text-white">Packages</h3>
               </div>
               <ul class="space-y-4 text-sm">
                 <li class="flex justify-between items-center border-b border-white/5 pb-2">
@@ -234,8 +287,8 @@
                 </li>
                 <li class="flex justify-between items-center border-b border-white/5 pb-2">
                   <div>
-                    <span class="text-gray-200 font-semibold block">Full Haircut Deluxe Package</span>
-                    <span class="text-xs text-brand-muted">The complete grooming experience</span>
+                    <span class="text-gray-200 font-semibold block">Full Deluxe Package</span>
+                    <span class="text-xs text-brand-muted">Complete grooming experience</span>
                   </div>
                   <span class="font-heading font-bold text-brand-gold text-lg">$75</span>
                 </li>
@@ -253,49 +306,8 @@
       </div>
     </section>
 
-    <!-- SECTION 2: SHOP ITEMS -->
-    <section id="shop" class="py-20 bg-brand-dark border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-14">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Shop Items</h2>
-          <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-brand-card p-6 rounded-2xl border border-white/10 text-center flex flex-col items-center">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-white/5">
-              <span class="material-symbols-outlined text-4xl text-brand-muted/40">dry</span>
-            </div>
-            <h3 class="font-heading font-bold text-white text-base mb-1">Hair Styling Products</h3>
-            <p class="text-xs text-brand-muted mb-3">Available In Store</p>
-            <span class="font-heading font-bold text-brand-gold text-base">$--</span>
-          </div>
-
-          <div class="bg-brand-card p-6 rounded-2xl border border-white/10 text-center flex flex-col items-center">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-white/5">
-              <span class="material-symbols-outlined text-4xl text-brand-muted/40">sanitizer</span>
-            </div>
-            <h3 class="font-heading font-bold text-white text-base mb-1">Beard Oils & Balms</h3>
-            <p class="text-xs text-brand-muted mb-3">Available In Store</p>
-            <span class="font-heading font-bold text-brand-gold text-base">$--</span>
-          </div>
-
-          <div class="bg-brand-card p-6 rounded-2xl border border-white/10 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-white/5">
-              <span class="material-symbols-outlined text-4xl text-brand-muted/40">content_cut</span>
-            </div>
-            <h3 class="font-heading font-bold text-white text-base mb-1">Grooming Essentials</h3>
-            <p class="text-xs text-brand-muted mb-3">Available In Store</p>
-            <span class="font-heading font-bold text-brand-gold text-base">$--</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- SECTION 3: FRAGRANCES -->
-    <section id="fragrances" class="py-20 bg-brand-black border-t border-white/5">
+    <section id="fragrances" class="py-20 bg-brand-black border-t border-brand-gold/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-xl mx-auto mb-14">
@@ -305,16 +317,16 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center">
-            <div class="w-12 h-12 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow">
+            <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
               <span class="material-symbols-outlined text-2xl">male</span>
             </div>
             <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Men's Fragrances</h3>
             <p class="text-xs text-brand-muted">Curated Luxury Perfumes & Ouds Available In Parlour.</p>
           </div>
 
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center">
-            <div class="w-12 h-12 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow">
+            <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
               <span class="material-symbols-outlined text-2xl">female</span>
             </div>
             <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Women's Fragrances</h3>
@@ -327,7 +339,7 @@
     </section>
 
     <!-- SECTION 4: LOCATION & MAP -->
-    <section id="location" class="py-20 bg-brand-dark border-t border-white/5">
+    <section id="location" class="py-20 bg-brand-dark border-t border-brand-gold/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -339,7 +351,7 @@
             </div>
 
             <div class="space-y-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-white/10">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-gold/20">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">location_on</span>
                 <div>
                   <h4 class="font-bold text-white text-xs uppercase">Address</h4>
@@ -347,7 +359,7 @@
                 </div>
               </div>
 
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-white/10">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-gold/20">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">call</span>
                 <div>
                   <h4 class="font-bold text-white text-xs uppercase">Phone</h4>
@@ -376,16 +388,16 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-brand-black border-t border-white/10 py-10">
+  <footer class="bg-brand-black border-t border-brand-gold/20 py-10">
     <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
       <div class="flex justify-center items-center gap-3">
         <div class="w-8 h-8 rounded-full border border-brand-gold bg-black overflow-hidden p-0.5">
-          <img src="12884.jpg" alt="Logo" class="w-full h-full object-cover rounded-full" onerror="this.style.display='none'"/>
+          <img src="12884.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
         </div>
         <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
       </div>
-      <p class="text-brand-muted text-[10px] tracking-widest uppercase">Look Good • Feel Sharp</p>
-      <p class="text-brand-muted/60 text-[11px] border-t border-white/5 pt-4">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
+      <p class="text-brand-gold text-[10px] tracking-widest uppercase font-semibold">Look Good • Feel Sharp</p>
+      <p class="text-brand-muted/60 text-[11px] border-t border-brand-gold/20 pt-4">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
     </div>
   </footer>
 
