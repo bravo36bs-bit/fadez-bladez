@@ -58,19 +58,28 @@
     .page.active {
       display: block;
     }
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: #0a0b0d;
+      border-left: 2px solid #c9a961;
+      transition: right 0.3s ease-in-out;
+      z-index: 100;
+      overflow-y: auto;
+      padding-top: 80px;
     }
-    .mobile-menu.active {
-      max-height: 400px;
+    .sidebar.active {
+      right: 0;
     }
-    .mobile-menu button {
-      display: block;
+    .sidebar button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       width: 100%;
-      padding: 12px 16px;
-      text-align: left;
+      padding: 16px 20px;
       border-bottom: 1px solid rgba(201, 169, 97, 0.1);
       color: #8a8a8a;
       font-weight: 600;
@@ -81,9 +90,22 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    .mobile-menu button:hover {
+    .sidebar button:hover {
       background-color: rgba(201, 169, 97, 0.1);
       color: #c9a961;
+    }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 99;
+    }
+    .sidebar-overlay.active {
+      display: block;
     }
   </style>
 </head>
@@ -91,79 +113,82 @@
 
   <!-- HEADER / NAVBAR -->
   <header class="sticky top-0 z-50 bg-brand-black/98 backdrop-blur-md border-b border-brand-gold/20 shadow-xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between gap-4">
       
       <!-- LOGO & BRAND NAME -->
-      <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-3 group cursor-pointer">
-        <div class="relative w-12 h-12 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
+      <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-2 group cursor-pointer flex-shrink-0">
+        <div class="relative w-14 h-14 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
           <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
         </div>
         <div class="flex flex-col">
-          <span class="font-heading font-bold text-base sm:text-lg tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
-          <span class="text-[9px] tracking-[0.25em] text-brand-gold font-medium uppercase">Barbershop</span>
+          <span class="font-heading font-bold text-sm sm:text-base tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
+          <span class="text-[8px] tracking-[0.2em] text-brand-gold font-medium uppercase">Barbershop</span>
         </div>
       </a>
 
       <!-- NAVIGATION LINKS -->
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-brand-muted">
-        <button onclick="showPage('home')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+      <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs font-semibold uppercase tracking-wider text-brand-muted flex-1 justify-center">
+        <button onclick="showPage('home')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
           <span class="material-symbols-outlined text-base text-brand-gold">home</span>
           <span>Home</span>
         </button>
-        <button onclick="showPage('prices')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+        <button onclick="showPage('prices')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
           <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
           <span>Prices</span>
         </button>
-        <button onclick="showPage('items')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+        <button onclick="showPage('items')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
           <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
           <span>Items</span>
         </button>
-        <button onclick="showPage('fragrances')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+        <button onclick="showPage('fragrances')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
           <span class="material-symbols-outlined text-base text-brand-gold">air</span>
           <span>Fragrances</span>
         </button>
-        <button onclick="showPage('contact')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+        <button onclick="showPage('contact')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
           <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
           <span>Contact</span>
         </button>
       </nav>
 
-      <!-- MOBILE MENU BUTTON -->
-      <button onclick="toggleMobileMenu()" class="md:hidden flex items-center">
-        <span class="material-symbols-outlined text-2xl text-brand-gold">menu</span>
-      </button>
-
       <!-- CALL BUTTON -->
-      <div>
-        <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-md">
+      <div class="flex items-center gap-2">
+        <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-md whitespace-nowrap">
           <span class="material-symbols-outlined text-base">call</span>
-          <span>Call Now</span>
+          <span class="hidden sm:inline">Call Now</span>
         </a>
+        
+        <!-- SIDEBAR MENU BUTTON (MOBILE) -->
+        <button onclick="toggleSidebar()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-brand-gold/10 transition-colors">
+          <span class="material-symbols-outlined text-2xl text-brand-gold">menu</span>
+        </button>
       </div>
 
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="mobile-menu md:hidden bg-brand-dark border-b border-brand-gold/20">
-    <button onclick="showPage('home'); toggleMobileMenu();" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-base text-brand-gold">home</span>
+  <!-- SIDEBAR MENU OVERLAY -->
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- SIDEBAR MENU -->
+  <div id="sidebar" class="sidebar md:hidden">
+    <button onclick="showPage('home'); toggleSidebar();">
+      <span class="material-symbols-outlined text-lg text-brand-gold">home</span>
       <span>Home</span>
     </button>
-    <button onclick="showPage('prices'); toggleMobileMenu();" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
+    <button onclick="showPage('prices'); toggleSidebar();">
+      <span class="material-symbols-outlined text-lg text-brand-gold">payments</span>
       <span>Prices</span>
     </button>
-    <button onclick="showPage('items'); toggleMobileMenu();" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
+    <button onclick="showPage('items'); toggleSidebar();">
+      <span class="material-symbols-outlined text-lg text-brand-gold">shopping_bag</span>
       <span>Items</span>
     </button>
-    <button onclick="showPage('fragrances'); toggleMobileMenu();" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-base text-brand-gold">air</span>
+    <button onclick="showPage('fragrances'); toggleSidebar();">
+      <span class="material-symbols-outlined text-lg text-brand-gold">air</span>
       <span>Fragrances</span>
     </button>
-    <button onclick="showPage('contact'); toggleMobileMenu();" class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
+    <button onclick="showPage('contact'); toggleSidebar();">
+      <span class="material-symbols-outlined text-lg text-brand-gold">location_on</span>
       <span>Contact</span>
     </button>
   </div>
@@ -536,15 +561,31 @@
 
   <!-- FOOTER -->
   <footer class="bg-brand-black border-t border-brand-gold/20 py-10">
-    <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
-      <div class="flex justify-center items-center gap-3">
-        <div class="w-8 h-8 rounded-full border border-brand-gold bg-black overflow-hidden p-0.5">
-          <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center space-y-6">
+        <div class="flex justify-center items-center gap-3">
+          <div class="w-8 h-8 rounded-full border border-brand-gold bg-black overflow-hidden p-0.5">
+            <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
+          </div>
+          <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
         </div>
-        <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
+        <p class="text-brand-gold text-[10px] tracking-widest uppercase font-semibold">Look Good • Feel Sharp</p>
+        
+        <!-- Social Media Links -->
+        <div class="flex justify-center items-center gap-6 py-4 border-y border-brand-gold/20">
+          <a href="https://www.instagram.com/fadezandbladez" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center hover:bg-brand-gold/25 transition-all">
+            <span class="material-symbols-outlined text-lg text-brand-gold">camera_alt</span>
+          </a>
+          <a href="https://wa.me/61413651248" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center hover:bg-brand-gold/25 transition-all">
+            <span class="material-symbols-outlined text-lg text-brand-gold">chat</span>
+          </a>
+          <a href="mailto:info@fadezandbladez.com" class="w-10 h-10 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center hover:bg-brand-gold/25 transition-all">
+            <span class="material-symbols-outlined text-lg text-brand-gold">mail</span>
+          </a>
+        </div>
+
+        <p class="text-brand-muted/60 text-[11px]">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
       </div>
-      <p class="text-brand-gold text-[10px] tracking-widest uppercase font-semibold">Look Good • Feel Sharp</p>
-      <p class="text-brand-muted/60 text-[11px] border-t border-brand-gold/20 pt-4">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
     </div>
   </footer>
 
@@ -562,9 +603,11 @@
       }
     }
 
-    function toggleMobileMenu() {
-      const mobileMenu = document.getElementById('mobileMenu');
-      mobileMenu.classList.toggle('active');
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
     }
     
     // عرض صفحة Home بشكل افتراضي عند التحميل
