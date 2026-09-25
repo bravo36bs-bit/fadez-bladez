@@ -59,25 +59,6 @@
       display: block;
     }
   </style>
-  <script>
-    function showPage(pageName) {
-      // إخفاء جميع الصفحات
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
-      
-      // إظهار الصفحة المطلوبة
-      const activePage = document.getElementById(pageName + '-page');
-      if (activePage) {
-        activePage.classList.add('active');
-        window.scrollTo(0, 0);
-      }
-    }
-    
-    // عرض صفحة Home بشكل افتراضي
-    window.addEventListener('load', function() {
-      showPage('home');
-    });
-  </script>
 </head>
 <body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
 
@@ -510,6 +491,26 @@
       <p class="text-brand-muted/60 text-[11px] border-t border-brand-gold/20 pt-4">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    function showPage(pageName) {
+      // إخفاء جميع الصفحات
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // إظهار الصفحة المطلوبة
+      const activePage = document.getElementById(pageName + '-page');
+      if (activePage) {
+        activePage.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+    
+    // عرض صفحة Home بشكل افتراضي عند التحميل
+    document.addEventListener('DOMContentLoaded', function() {
+      showPage('home');
+    });
+  </script>
 
 </body>
 </html>
