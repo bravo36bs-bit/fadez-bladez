@@ -52,7 +52,32 @@
     .gradient-gold {
       background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(201, 169, 97, 0.05));
     }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
   </style>
+  <script>
+    function showPage(pageName) {
+      // إخفاء جميع الصفحات
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // إظهار الصفحة المطلوبة
+      const activePage = document.getElementById(pageName + '-page');
+      if (activePage) {
+        activePage.classList.add('active');
+        window.scrollTo(0, 0);
+      }
+    }
+    
+    // عرض صفحة Home بشكل افتراضي
+    window.addEventListener('load', function() {
+      showPage('home');
+    });
+  </script>
 </head>
 <body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
 
@@ -61,9 +86,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- LOGO & BRAND NAME -->
-      <a href="#home" class="flex items-center gap-3 group">
+      <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-3 group cursor-pointer">
         <div class="relative w-12 h-12 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
-          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
+          <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
         </div>
         <div class="flex flex-col">
           <span class="font-heading font-bold text-base sm:text-lg tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
@@ -73,22 +98,26 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-brand-muted">
-        <a href="#services" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
-          <span class="material-symbols-outlined text-base text-brand-gold">content_cut</span>
-          <span>Services</span>
-        </a>
-        <a href="#prices" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
+        <button onclick="showPage('home')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-base text-brand-gold">home</span>
+          <span>Home</span>
+        </button>
+        <button onclick="showPage('prices')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
           <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
           <span>Prices</span>
-        </a>
-        <a href="#fragrances" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
+        </button>
+        <button onclick="showPage('items')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
+          <span>Items</span>
+        </button>
+        <button onclick="showPage('fragrances')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
           <span class="material-symbols-outlined text-base text-brand-gold">air</span>
           <span>Fragrances</span>
-        </a>
-        <a href="#location" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors">
+        </button>
+        <button onclick="showPage('contact')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer">
           <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
           <span>Contact</span>
-        </a>
+        </button>
       </nav>
 
       <!-- CALL BUTTON -->
@@ -104,13 +133,16 @@
 
   <main class="flex-grow">
 
+    <!-- PAGE: HOME -->
+    <div id="home-page" class="page">
+
     <!-- HERO SECTION (HOME) -->
     <section id="home" class="relative py-20 lg:py-28 overflow-hidden gradient-gold border-b border-brand-gold/10">
       <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
         
         <!-- Big Display Logo Header -->
         <div class="mx-auto w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-brand-gold p-1 bg-black mb-8 gold-glow inline-block">
-          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full"/>
+          <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full"/>
         </div>
 
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
@@ -142,7 +174,7 @@
     </section>
 
     <!-- SECTION 1: SERVICES OVERVIEW -->
-    <section id="services" class="py-20 bg-brand-black border-b border-brand-gold/10">
+    <section class="py-20 bg-brand-black border-b border-brand-gold/10">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-16">
@@ -198,8 +230,13 @@
       </div>
     </section>
 
-    <!-- SECTION 2: PRICES & SERVICES -->
-    <section id="prices" class="py-20 bg-brand-dark border-t border-brand-gold/10">
+    </div>
+
+    <!-- PAGE: PRICES -->
+    <div id="prices-page" class="page">
+
+    <!-- SECTION: PRICES & SERVICES -->
+    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-xl mx-auto mb-14">
@@ -306,8 +343,74 @@
       </div>
     </section>
 
-    <!-- SECTION 3: FRAGRANCES -->
-    <section id="fragrances" class="py-20 bg-brand-black border-t border-brand-gold/10">
+    </div>
+
+    <!-- PAGE: ITEMS -->
+    <div id="items-page" class="page">
+
+    <!-- SECTION: SHOP ITEMS -->
+    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-14">
+          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Shop Items</h2>
+          <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
+          <p class="text-brand-muted text-sm mt-4">Premium grooming products and essentials available at our parlour.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
+              <span class="material-symbols-outlined text-5xl text-brand-gold/50">dry</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Hair Styling Products</h3>
+            <p class="text-xs text-brand-muted mb-4 flex-grow">Premium pomades, gels, and styling products for the perfect finish.</p>
+            <div class="pt-4 border-t border-brand-gold/20">
+              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
+            </div>
+          </div>
+
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
+              <span class="material-symbols-outlined text-5xl text-brand-gold/50">sanitizer</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Beard Oils & Balms</h3>
+            <p class="text-xs text-brand-muted mb-4 flex-grow">Luxurious beard care products to keep your beard healthy and sharp.</p>
+            <div class="pt-4 border-t border-brand-gold/20">
+              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
+            </div>
+          </div>
+
+          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col sm:col-span-2 lg:col-span-1">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
+              <span class="material-symbols-outlined text-5xl text-brand-gold/50">content_cut</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Grooming Essentials</h3>
+            <p class="text-xs text-brand-muted mb-4 flex-grow">Complete grooming kit with scissors, razors, and professional tools.</p>
+            <div class="pt-4 border-t border-brand-gold/20">
+              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 border border-brand-gold/20 text-center">
+          <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Interested In Any Products?</p>
+          <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+            <span class="material-symbols-outlined text-lg">call</span>
+            Call Us: 0413 651 248
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    </div>
+
+    <!-- PAGE: FRAGRANCES -->
+    <div id="fragrances-page" class="page">
+
+    <!-- SECTION: FRAGRANCES -->
+    <section class="py-20 bg-brand-black border-t border-brand-gold/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-xl mx-auto mb-14">
@@ -338,8 +441,13 @@
       </div>
     </section>
 
-    <!-- SECTION 4: LOCATION & MAP -->
-    <section id="location" class="py-20 bg-brand-dark border-t border-brand-gold/10">
+    </div>
+
+    <!-- PAGE: CONTACT -->
+    <div id="contact-page" class="page">
+
+    <!-- SECTION: LOCATION & MAP -->
+    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -385,6 +493,8 @@
       </div>
     </section>
 
+    </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -392,7 +502,7 @@
     <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
       <div class="flex justify-center items-center gap-3">
         <div class="w-8 h-8 rounded-full border border-brand-gold bg-black overflow-hidden p-0.5">
-          <img src="12884.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
+          <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
         </div>
         <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
       </div>
