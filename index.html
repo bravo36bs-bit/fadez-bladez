@@ -1,499 +1,390 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="web_standard" name="shell-type"/>
-  <title>FADEZ &amp; BLADEZ | Luxury Barber Atelier Riverwood</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FADEZ & BLADEZ BARBERSHOP | Premium Barber & Grooming Riverwood</title>
+  <meta name="description" content="FADEZ & BLADEZ BARBERSHOP in Riverwood NSW. Precision Haircuts, Beard Sculpting, Deluxe Packages, Grooming Essentials, and Fine Fragrances. Look Good • Feel Sharp."/>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <style>
-    @layer base {
-      html, body {
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-      }
-      body {
-        overscroll-behavior: none;
-      }
-      main > :first-child {
-        margin-top: 0 !important;
-      }
-      main > :last-child {
-        margin-bottom: 0 !important;
-      }
-    }
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Ambient Liquid Float Keyframes */
-    @keyframes floatOrb1 {
-      0%, 100% { transform: translate(0px, 0px) scale(1); }
-      33% { transform: translate(60px, -40px) scale(1.12); }
-      66% { transform: translate(-40px, 35px) scale(0.92); }
-    }
-    @keyframes floatOrb2 {
-      0%, 100% { transform: translate(0px, 0px) scale(1); }
-      40% { transform: translate(-70px, 50px) scale(1.15); }
-      75% { transform: translate(45px, -30px) scale(0.95); }
-    }
-    @keyframes floatOrb3 {
-      0%, 100% { transform: translate(0px, 0px) scale(1); }
-      50% { transform: translate(50px, 60px) scale(1.2); }
-    }
-    @keyframes shimmerMove {
-      0% { transform: translateX(-120%) rotate(25deg); }
-      100% { transform: translateX(250%) rotate(25deg); }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(235, 203, 160, 0.35); }
-      50% { box-shadow: 0 0 30px rgba(235, 203, 160, 0.7); }
-    }
-
-    .orb-1 { animation: floatOrb1 18s ease-in-out infinite; }
-    .orb-2 { animation: floatOrb2 22s ease-in-out infinite; }
-    .orb-3 { animation: floatOrb3 26s ease-in-out infinite; }
-    .glow-pulse { animation: pulseGlow 3s ease-in-out infinite; }
-
-    /* Glassmorphic Liquid Cards */
-    .liquid-glass {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(28, 33, 43, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-    .liquid-glass:hover {
-      transform: translateY(-4px) scale(1.015);
-      border-color: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.35), 0 0 25px rgba(224, 194, 152, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.4);
-    }
-
-    /* Interactive Shimmer Overlay on hover */
-    .shimmer-trigger {
-      position: relative;
-      overflow: hidden;
-    }
-    .shimmer-trigger::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 50%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-      transform: translateX(-150%) rotate(25deg);
-      pointer-events: none;
-      transition: none;
-    }
-    .shimmer-trigger:hover::after {
-      animation: shimmerMove 0.85s ease-out forwards;
-    }
-
-    /* Fluid metallic glass pill buttons */
-    .liquid-btn-gold {
-      background: linear-gradient(135deg, #f2d9b5 0%, #dfbe93 50%, #cca26b 100%);
-      box-shadow: 0 4px 20px rgba(223, 190, 147, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.6);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .liquid-btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(223, 190, 147, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.8);
-      filter: brightness(1.06);
-    }
-
-    .liquid-btn-glass {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .liquid-btn-glass:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.35);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-    }
-  </style>
-  <script id="tailwind-config">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "on-primary-fixed": "#191c1f",
-            "surface-variant": "#2b313d",
-            "on-primary": "#1e2229",
-            "inverse-primary": "#757c87",
-            "primary-fixed": "#eceef2",
-            "on-surface-variant": "#cbd2dd",
-            "inverse-on-surface": "#303034",
-            "outline-variant": "#4a5363",
-            "surface-container-highest": "#333b49",
-            "secondary-container": "#584323",
-            "on-error": "#690005",
-            "on-primary-container": "#727780",
-            "on-surface": "#f1f3f7",
-            "surface-container-low": "#1c212a",
-            "on-secondary-fixed": "#281800",
-            "surface-container-high": "#282f3c",
-            "tertiary-fixed-dim": "#d6dbe5",
-            "on-error-container": "#ffdad6",
-            "on-primary-fixed-variant": "#4a5260",
-            "tertiary-fixed": "#edf0f7",
-            "background": "#161920",
-            "surface": "#181c23",
-            "tertiary": "#ffffff",
-            "on-tertiary-fixed": "#1a1b22",
-            "surface-tint": "#cbd5e1",
-            "on-secondary-container": "#f1d5af",
-            "primary-container": "#eaedf2",
-            "surface-bright": "#3f4859",
-            "error": "#ffb4ab",
-            "tertiary-container": "#edf0f7",
-            "primary-fixed-dim": "#cbd2dd",
-            "on-secondary": "#362409",
-            "secondary-fixed": "#fedeb2",
-            "on-tertiary": "#262b36",
-            "surface-dim": "#14171e",
-            "secondary-fixed-dim": "#e0c298",
-            "on-secondary-fixed-variant": "#584323",
-            "outline": "#94a0b3",
-            "on-background": "#f3f5f9",
-            "on-tertiary-fixed-variant": "#46464e",
-            "secondary": "#dfbe93",
-            "primary": "#ffffff",
-            "surface-container-lowest": "#12151c",
-            "error-container": "#93000a",
-            "surface-container": "#222732",
-            "inverse-surface": "#e3e2e6"
-          },
-          borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.375rem",
-            "xl": "0.75rem",
-            "full": "9999px"
+            brand: {
+              black: "#0b0c0e",
+              dark: "#121418",
+              card: "#181a20",
+              gold: "#d4af37",
+              goldHover: "#f3e5ab",
+              goldDark: "#9a7b20",
+              text: "#e2e8f0",
+              muted: "#94a3b8"
+            }
           },
           fontFamily: {
-            "label-sm": ["Hanken Grotesk", "sans-serif"],
-            "display-lg": ["Playfair Display", "serif"],
-            "headline-sm": ["Playfair Display", "serif"],
-            "title-lg": ["Hanken Grotesk", "sans-serif"],
-            "label-lg": ["Hanken Grotesk", "sans-serif"],
-            "display-lg-mobile": ["Playfair Display", "serif"],
-            "headline-lg-mobile": ["Playfair Display", "serif"],
-            "body-lg": ["Hanken Grotesk", "sans-serif"],
-            "body-md": ["Hanken Grotesk", "sans-serif"],
-            "headline-lg": ["Playfair Display", "serif"],
-            "title-md": ["Hanken Grotesk", "sans-serif"],
-            "headline-md": ["Playfair Display", "serif"]
+            heading: ['Cinzel', 'serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif']
           }
         }
       }
     };
   </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0c0e; }
+    ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 3px; }
+    .gold-border-glow {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      transition: all 0.3s ease;
+    }
+    .gold-border-glow:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    }
+  </style>
 </head>
-<body class="bg-[#151922] text-on-surface font-body-md text-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-secondary selection:text-on-secondary">
+<body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
 
-  <!-- FLUID LIQUID BACKGROUND GLOW ORBS -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="orb-1 absolute -top-40 left-1/4 w-[650px] h-[650px] bg-gradient-to-br from-secondary/15 via-[#b0c4de]/10 to-transparent rounded-full blur-[110px]"></div>
-    <div class="orb-2 absolute top-1/4 -right-40 w-[600px] h-[600px] bg-gradient-to-bl from-blue-300/10 via-slate-300/10 to-transparent rounded-full blur-[120px]"></div>
-    <div class="orb-3 absolute top-2/3 -left-40 w-[700px] h-[700px] bg-gradient-to-tr from-secondary/12 via-indigo-300/8 to-transparent rounded-full blur-[130px]"></div>
-    <div class="orb-1 absolute -bottom-20 right-1/4 w-[550px] h-[550px] bg-gradient-to-t from-slate-400/10 via-amber-200/8 to-transparent rounded-full blur-[100px]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.03]"></div>
-  </div>
-
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#161b24]/75 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.25)] border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
-      <a class="flex items-center gap-3 group transition-transform duration-300 hover:scale-105" href="#">
-        <div class="w-12 h-12 rounded-full border border-secondary/40 overflow-hidden flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] bg-black">
-          <img src="12511.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
+  <!-- HEADER / NAVBAR -->
+  <header class="sticky top-0 z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-full border border-brand-gold/50 bg-black overflow-hidden flex items-center justify-center p-0.5">
+          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full" />
         </div>
-        <span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary font-bold">FADEZ &amp; BLADEZ</span>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-lg tracking-wider text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
+          <span class="text-[10px] tracking-[0.2em] text-brand-gold font-medium uppercase">Barbershop</span>
+        </div>
       </a>
-      <nav class="hidden lg:flex items-center gap-8 px-5 py-2 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
-        <a class="uppercase transition-all text-primary font-semibold border-b-2 border-secondary pb-0.5 text-label-lg tracking-wider" href="#">Home</a>
-        <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors tracking-wider" href="#services-menu">Services &amp; Pricing</a>
-        <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors tracking-wider" href="#master-barbers">Master Barbers</a>
-        <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors tracking-wider" href="#atelier-proof">Gallery</a>
-        <a class="font-label-lg text-label-lg uppercase text-on-surface-variant hover:text-primary transition-colors tracking-wider" href="#location-section">Location &amp; Contact</a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider text-brand-muted">
+        <a href="#prices" class="hover:text-brand-gold transition-colors">Prices & Services</a>
+        <a href="#shop" class="hover:text-brand-gold transition-colors">Shop Items</a>
+        <a href="#fragrances" class="hover:text-brand-gold transition-colors">Fragrances</a>
+        <a href="#location" class="hover:text-brand-gold transition-colors">Location & Contact</a>
       </nav>
-      <div class="flex items-center gap-4">
-        <a class="hidden sm:inline-flex items-center justify-center font-label-lg text-label-lg uppercase tracking-wider liquid-btn-gold text-on-secondary px-5 py-2.5 rounded-full font-semibold shimmer-trigger" href="#booking-matrix">
-          Book Appointment
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-semibold px-4 py-2.5 rounded-lg text-sm tracking-wide hover:bg-brand-goldHover transition-all shadow-md">
+          <span class="material-symbols-outlined text-base">call</span>
+          <span>Call Now</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT CONTAINER -->
-  <main class="w-full pt-20 bg-transparent min-h-[calc(100vh-80px)] relative z-10">
-    <div class="flex flex-col w-full">
+  <main class="flex-grow">
 
-      <!-- HERO SECTION -->
-      <section class="relative w-full overflow-hidden -mt-20 pt-28 pb-20 lg:pt-36 lg:pb-28">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            <div class="lg:col-span-7 flex flex-col items-start">
-              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.07] border border-white/20 backdrop-blur-xl text-secondary text-label-sm font-label-sm uppercase tracking-[0.2em] mb-6 shadow-[0_4px_20px_rgba(0,0,0,0.15)] glow-pulse">
-                <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
-                <span class="text-white/90 font-medium">Riverwood Atelier • Est. 2020</span>
-              </div>
-              <h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-white uppercase font-bold tracking-tight leading-[1.08] mb-6 drop-shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
-                Crafting Timeless <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ffe5c2] via-secondary to-[#c29f70] italic font-headline-lg">Cuts</span> &amp; Precision Fades
-              </h1>
-              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed drop-shadow-sm">
-                Sydney’s premier artisan grooming parlour. Master craftsmanship, classic straight-razor ritual, and immaculate tailored styling at 230 Belmore Rd, Riverwood.
-              </p>
-              <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-14">
-                <a class="w-full sm:w-auto inline-flex items-center justify-center font-label-lg text-label-lg uppercase tracking-wider liquid-btn-gold text-on-secondary px-8 py-4 rounded-full font-semibold shimmer-trigger shadow-2xl" href="#booking-matrix">
-                  <span class="material-symbols-outlined text-lg mr-2">calendar_month</span>
-                  Book Your Chair
-                </a>
-                <a class="w-full sm:w-auto inline-flex items-center justify-center font-label-lg text-label-lg uppercase tracking-wider liquid-btn-glass text-white px-7 py-4 rounded-full font-medium transition-all" href="#services-menu">
-                  <span class="material-symbols-outlined text-lg mr-2 text-secondary">content_cut</span>
-                  Explore Menu
-                </a>
-              </div>
-              <div class="grid grid-cols-3 gap-4 w-full p-5 rounded-2xl liquid-glass">
-                <div class="flex flex-col border-r border-white/10 pr-3">
-                  <div class="flex items-center text-secondary mb-1">
-                    <span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
-                    <span class="font-title-md text-title-md text-white font-bold ml-1">4.9/5</span>
-                  </div>
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">500+ Reviews</span>
-                </div>
-                <div class="flex flex-col border-r border-white/10 px-3">
-                  <div class="flex items-center text-secondary mb-1">
-                    <span class="material-symbols-outlined text-base">verified</span>
-                    <span class="font-title-md text-title-md text-white font-bold ml-1">Master</span>
-                  </div>
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Licensed Artisans</span>
-                </div>
-                <div class="flex flex-col pl-3">
-                  <div class="flex items-center text-secondary mb-1">
-                    <span class="material-symbols-outlined text-base">dry_cleaning</span>
-                    <span class="font-title-md text-title-md text-white font-bold ml-1">Classic</span>
-                  </div>
-                  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Straight Razor Spa</span>
-                </div>
-              </div>
-            </div>
-            <div class="lg:col-span-5 relative flex justify-center">
-              <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.45)] border border-white/20 p-2 bg-white/[0.06] backdrop-blur-xl group">
-                <div class="relative w-full h-full rounded-2xl overflow-hidden">
-                  <img class="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5R365cBQYdOiANlmZX4Rqm1qtwvXvFAomnQ6m9okuCLXPm06s3H6K2vJWPjuv9jCfDckKBR8py3Ad6fOhZQoPrZZWPbThdBJXZgJ4Rz913W1ZKPBQM_YH6vP_kDwen0Wf5hcMgMI6anwdpQ9wQG1wiOmsQSsiqKuJlTa70U5xDbXpUNOuWzHydIm8VZLI0_gnIrcRYZE9IUevmnHLSTrxLXoyVY98A_fTFbJH05mg" alt="Barbering"/>
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#12151c]/90 via-transparent to-transparent"></div>
-                  <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-[#1c222d]/85 backdrop-blur-2xl border border-white/20 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
-                    <div class="flex items-center gap-3">
-                      <div class="w-11 h-11 rounded-xl bg-secondary/20 border border-secondary/30 flex items-center justify-center text-secondary">
-                        <span class="material-symbols-outlined text-xl">content_cut</span>
-                      </div>
-                      <div>
-                        <p class="font-label-lg text-label-lg text-white font-semibold uppercase tracking-wider">The Riverwood Chair</p>
-                        <p class="font-body-md text-xs text-on-surface-variant flex items-center gap-1.5 mt-0.5">
-                          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                          Walk-ins &amp; Appointments Welcome
-                        </p>
-                      </div>
-                    </div>
-                    <a class="p-3 rounded-xl liquid-btn-gold text-on-secondary transition-transform duration-200 hover:scale-110" href="tel:0413651248">
-                      <span class="material-symbols-outlined text-base font-bold">call</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-brand-dark to-brand-black border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+          Riverwood, NSW • Australia
         </div>
-      </section>
-
-      <!-- SERVICES MENU -->
-      <section class="w-full py-24 relative" id="services-menu">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="text-center max-w-2xl mx-auto mb-14">
-            <span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-secondary font-semibold">The Service Roster</span>
-            <h2 class="font-display-lg text-headline-lg lg:text-display-lg text-white uppercase mt-2">Bespoke Grooming Menu</h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="service-card liquid-glass p-7 rounded-2xl flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between gap-4 mb-4">
-                  <h3 class="font-headline-md text-headline-md text-white font-medium">The Signature Fade &amp; Style</h3>
-                  <span class="font-display-lg text-headline-sm text-secondary font-bold">$45</span>
-                </div>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-6">Tailored skin taper, low/mid/high fade, or scissor finish with razor neck cleanup.</p>
-              </div>
-              <button class="w-full py-3.5 rounded-xl font-label-lg uppercase tracking-wider liquid-btn-glass text-white border border-white/20 hover:border-secondary/40 transition-all" onclick="prefillBooking('The Signature Fade & Style', '45')">Reserve Treatment</button>
-            </div>
-            <div class="service-card liquid-glass p-7 rounded-2xl flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between gap-4 mb-4">
-                  <h3 class="font-headline-md text-headline-md text-white font-medium">Hot Towel Razor Shave</h3>
-                  <span class="font-display-lg text-headline-sm text-secondary font-bold">$40</span>
-                </div>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-6">Hot towel infusion, pre-shave lather, surgical straight-razor shave, and cold towel seal.</p>
-              </div>
-              <button class="w-full py-3.5 rounded-xl font-label-lg uppercase tracking-wider liquid-btn-glass text-white border border-white/20 hover:border-secondary/40 transition-all" onclick="prefillBooking('Hot Towel Razor Shave', '40')">Reserve Treatment</button>
-            </div>
-            <div class="service-card liquid-glass p-7 rounded-2xl flex flex-col justify-between">
-              <div>
-                <div class="flex items-baseline justify-between gap-4 mb-4">
-                  <h3 class="font-headline-md text-headline-md text-white font-medium">The Executive Package</h3>
-                  <span class="font-display-lg text-headline-sm text-secondary font-bold">$85</span>
-                </div>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-6">Skin fade &amp; haircut, detailed beard sculpting, twin hot towels, and facial scrub.</p>
-              </div>
-              <button class="w-full py-3.5 rounded-xl font-label-lg uppercase tracking-wider liquid-btn-gold text-on-secondary font-bold transition-all" onclick="prefillBooking('The Executive Package', '85')">Reserve Treatment</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- BOOKING MATRIX -->
-      <section class="w-full py-20 relative" id="booking-matrix">
-        <div class="max-w-5xl mx-auto px-6 lg:px-12">
-          <div class="text-center mb-12">
-            <span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-secondary font-semibold">Appointments &amp; Walk-ins</span>
-            <h2 class="font-display-lg text-headline-lg lg:text-display-lg text-white uppercase mt-1">Reserve Your Chair</h2>
-          </div>
-          <div class="p-8 sm:p-12 rounded-3xl liquid-glass border border-white/25">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="flex flex-col gap-6">
-                <div>
-                  <label class="block font-label-lg text-label-lg text-white uppercase mb-2">1. Select Treatment</label>
-                  <select class="w-full px-4 py-3.5 rounded-xl bg-white/[0.08] border border-white/20 text-white font-body-md focus:bg-[#202734] focus:outline-none" id="booking-service" onchange="updateSummary()">
-                    <option class="bg-[#1c222d] text-white" data-price="45" data-time="45 min" value="The Signature Fade &amp; Style">The Signature Fade &amp; Style — $45</option>
-                    <option class="bg-[#1c222d] text-white" data-price="40" data-time="30 min" value="Hot Towel Razor Shave">Hot Towel Razor Shave — $40</option>
-                    <option class="bg-[#1c222d] text-white" data-price="85" data-time="75 min" selected="" value="The Executive Package">The Executive Package — $85</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block font-label-lg text-label-lg text-white uppercase mb-2">2. Preferred Date</label>
-                  <input class="w-full px-4 py-3.5 rounded-xl bg-white/[0.08] border border-white/20 text-white font-body-md focus:outline-none" id="booking-date" type="date" value="2026-09-20"/>
-                </div>
-              </div>
-              <div class="flex flex-col justify-between bg-white/[0.04] border border-white/15 p-6 rounded-2xl">
-                <div>
-                  <h4 class="font-label-lg text-label-lg uppercase text-secondary mb-4 font-semibold">Chair Reservation Summary</h4>
-                  <div class="space-y-4 mb-6">
-                    <input class="w-full px-4 py-3.5 rounded-xl bg-white/[0.08] border border-white/20 text-white focus:outline-none" id="guest-name" placeholder="Full Name" type="text"/>
-                    <input class="w-full px-4 py-3.5 rounded-xl bg-white/[0.08] border border-white/20 text-white focus:outline-none" id="guest-phone" placeholder="Australian Mobile (0413 651 248)" type="tel"/>
-                  </div>
-                  <div class="p-4 rounded-xl bg-[#141922]/70 border border-white/10 space-y-2">
-                    <div class="flex justify-between text-on-surface-variant"><span>Location</span><span class="text-white">230 Belmore Rd, Riverwood</span></div>
-                    <div class="flex justify-between border-t border-white/10 pt-2"><span class="text-white font-semibold">Total Price</span><span class="text-secondary font-bold" id="summary-price">$85</span></div>
-                  </div>
-                </div>
-                <button class="w-full mt-6 py-4 rounded-xl font-label-lg uppercase liquid-btn-gold text-on-secondary font-bold" id="btn-confirm-book" onclick="handleReservationSubmit()">Confirm Chair Booking</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- LOCATION & VISIT DETAILS -->
-      <section class="w-full py-20 relative" id="location-section">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-5 flex flex-col">
-              <span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary font-semibold">Flagship Parlour</span>
-              <h2 class="font-headline-lg text-headline-lg text-white uppercase mt-2 mb-6">Visit Our Riverwood Atelier</h2>
-              <div class="flex flex-col gap-6 mb-8 font-body-md text-on-surface-variant">
-                <div class="flex items-start gap-4 p-4 rounded-2xl liquid-glass">
-                  <span class="material-symbols-outlined text-2xl text-secondary">location_on</span>
-                  <div>
-                    <p class="font-title-md text-white font-bold">230 Belmore Rd, Riverwood NSW 2210</p>
-                    <p class="text-sm">2 minutes walk from Riverwood Railway Station.</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4 p-4 rounded-2xl liquid-glass">
-                  <span class="material-symbols-outlined text-2xl text-secondary">phone</span>
-                  <div>
-                    <p class="font-title-md text-white font-bold">Direct Line</p>
-                    <a class="text-secondary hover:text-white font-semibold text-lg" href="tel:0413651248">0413 651 248</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- FOOTER WITH LOGO -->
-  <footer class="w-full bg-[#12161f]/90 backdrop-blur-2xl border-t border-white/10 relative z-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        <div class="flex flex-col gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full border border-secondary/40 overflow-hidden bg-black flex items-center justify-center">
-              <img src="12511.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
-            </div>
-            <span class="font-headline-sm text-headline-sm uppercase text-white font-bold">FADEZ &amp; BLADEZ</span>
-          </div>
-          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            An ultra-premium grooming sanctuary in Riverwood. Handcrafted straight razor precision, bespoke beard sculpting, and elevated modern cuts.
-          </p>
-        </div>
-        <div class="flex flex-col gap-4">
-          <h4 class="font-headline-sm text-headline-sm text-secondary uppercase font-bold">Atelier Location</h4>
-          <p class="text-on-surface-variant">230 Belmore Rd, Riverwood NSW 2210, Australia<br/>Phone: 0413 651 248</p>
-        </div>
-        <div class="flex flex-col gap-4">
-          <h4 class="font-headline-sm text-headline-sm text-secondary uppercase font-bold">Hours</h4>
-          <p class="text-on-surface-variant text-sm">Mon - Wed: 9am - 6pm<br/>Thu - Fri: 9am - 8pm<br/>Sat: 8:30am - 5:30pm<br/>Sun: 10am - 4pm</p>
+        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase mb-4">
+          LOOK GOOD <span class="text-brand-gold">•</span> FEEL SHARP
+        </h1>
+        <p class="max-w-2xl mx-auto text-brand-muted text-base sm:text-lg mb-8 leading-relaxed">
+          Premium haircuts, traditional straight razor shaves, and meticulous beard sculpting. Experience elite craftsmanship in Riverwood.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#prices" class="bg-brand-gold text-brand-black font-bold px-8 py-3.5 rounded-lg text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+            View Price List
+          </a>
+          <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" rel="noopener noreferrer" class="border border-brand-gold/40 text-white font-medium px-7 py-3.5 rounded-lg text-sm uppercase tracking-wider hover:bg-brand-gold/10 transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
+            Get Directions
+          </a>
         </div>
       </div>
-      <div class="mt-16 pt-8 border-t border-white/10 text-center text-on-surface-variant font-label-sm">
-        <p>© 2026 FADEZ &amp; BLADEZ BARBERSHOP. All rights reserved.</p>
+    </section>
+
+    <!-- SECTION 1: SERVICES & PRICES MENU -->
+    <section id="prices" class="py-20 bg-brand-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Services & Prices</h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto mt-3 mb-4 rounded-full"></div>
+          <p class="text-brand-muted text-sm">Transparent pricing for premium barbering services.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Hair Services -->
+          <div class="bg-brand-card p-6 sm:p-8 rounded-xl gold-border-glow">
+            <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <span class="material-symbols-outlined text-brand-gold text-2xl">content_cut</span>
+              <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Services</h3>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Normal Haircut</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$35</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Zero Haircut</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$35</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Skin Fade</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$35</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Hair Shape-Up</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$20</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Kids Haircut <span class="text-xs text-brand-muted">(Under 12)</span></span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$25</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Hair Colour</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$35</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-200 font-medium">Senior Hair Colour</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$30</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-200 font-medium">Hair Wash</span>
+                <span class="font-heading font-bold text-brand-gold text-lg">$10</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Beard Services & Combos -->
+          <div class="space-y-8">
+            
+            <!-- Beard Services -->
+            <div class="bg-brand-card p-6 sm:p-8 rounded-xl gold-border-glow">
+              <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                <span class="material-symbols-outlined text-brand-gold text-2xl">face</span>
+                <h3 class="font-heading text-xl font-bold uppercase text-white">Beard Services</h3>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-gray-200 font-medium">Beard Shape-Up</span>
+                  <span class="font-heading font-bold text-brand-gold text-lg">$25</span>
+                </li>
+                <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-gray-200 font-medium">Beard Fade & Shape-Up</span>
+                  <span class="font-heading font-bold text-brand-gold text-lg">$30</span>
+                </li>
+                <li class="flex justify-between items-center">
+                  <span class="text-gray-200 font-medium">Beard Shave</span>
+                  <span class="font-heading font-bold text-brand-gold text-lg">$20</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Combo & Deluxe & Wax -->
+            <div class="bg-brand-card p-6 sm:p-8 rounded-xl gold-border-glow">
+              <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                <span class="material-symbols-outlined text-brand-gold text-2xl">star</span>
+                <h3 class="font-heading text-xl font-bold uppercase text-white">Combos & Deluxe</h3>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-gray-200 font-medium">Haircut + Beard</span>
+                  <span class="font-heading font-bold text-brand-gold text-lg">$50</span>
+                </li>
+                <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <div>
+                    <span class="text-gray-200 font-semibold block">Full Haircut Deluxe Package</span>
+                    <span class="text-xs text-brand-muted">The complete grooming treatment</span>
+                  </div>
+                  <span class="font-heading font-bold text-brand-gold text-xl">$75</span>
+                </li>
+                <li class="flex justify-between items-center">
+                  <span class="text-gray-200 font-medium">Waxing</span>
+                  <span class="font-heading font-bold text-brand-gold text-lg">$10</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: SHOP ESSENTIALS (PLACEHOLDER) -->
+    <section id="shop" class="py-20 bg-brand-dark border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Shop Essentials</h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto mt-3 mb-4 rounded-full"></div>
+          <p class="text-brand-muted text-sm">Professional styling pomades, beard oils, and grooming care.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Placeholder Item 1 -->
+          <div class="bg-brand-card p-6 rounded-xl border border-white/10 text-center flex flex-col items-center">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-lg mb-4 flex items-center justify-center border border-white/5">
+              <span class="material-symbols-outlined text-4xl text-brand-muted/40">inventory_2</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-1">Grooming Product</h3>
+            <p class="text-xs text-brand-muted mb-3">Coming Soon - Available In Parlour</p>
+            <span class="font-heading font-bold text-brand-gold text-lg">$--</span>
+          </div>
+
+          <!-- Placeholder Item 2 -->
+          <div class="bg-brand-card p-6 rounded-xl border border-white/10 text-center flex flex-col items-center">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-lg mb-4 flex items-center justify-center border border-white/5">
+              <span class="material-symbols-outlined text-4xl text-brand-muted/40">inventory_2</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-1">Styling Wax & Pomade</h3>
+            <p class="text-xs text-brand-muted mb-3">Coming Soon - Available In Parlour</p>
+            <span class="font-heading font-bold text-brand-gold text-lg">$--</span>
+          </div>
+
+          <!-- Placeholder Item 3 -->
+          <div class="bg-brand-card p-6 rounded-xl border border-white/10 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
+            <div class="w-full aspect-square bg-brand-black/60 rounded-lg mb-4 flex items-center justify-center border border-white/5">
+              <span class="material-symbols-outlined text-4xl text-brand-muted/40">inventory_2</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-1">Beard Elixir & Care</h3>
+            <p class="text-xs text-brand-muted mb-3">Coming Soon - Available In Parlour</p>
+            <span class="font-heading font-bold text-brand-gold text-lg">$--</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: FRAGRANCES (MEN & WOMEN PLACEHOLDER) -->
+    <section id="fragrances" class="py-20 bg-brand-black border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Fine Fragrances</h2>
+          <div class="w-16 h-1 bg-brand-gold mx-auto mt-3 mb-4 rounded-full"></div>
+          <p class="text-brand-muted text-sm">Curated luxury perfumes for men and women.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          <!-- Men's Collection -->
+          <div class="bg-brand-card p-8 rounded-xl border border-brand-gold/20">
+            <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <span class="material-symbols-outlined text-brand-gold text-2xl">male</span>
+              <h3 class="font-heading text-2xl font-bold uppercase text-white">Men's Fragrance Collection</h3>
+            </div>
+            <div class="py-12 text-center text-brand-muted space-y-2">
+              <span class="material-symbols-outlined text-4xl text-brand-gold/40 mb-2">view_carousel</span>
+              <p class="font-medium text-white">Exclusive Men's Perfumes & Ouds</p>
+              <p class="text-xs">Collection details will be available shortly.</p>
+            </div>
+          </div>
+
+          <!-- Women's Collection -->
+          <div class="bg-brand-card p-8 rounded-xl border border-brand-gold/20">
+            <div class="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <span class="material-symbols-outlined text-brand-gold text-2xl">female</span>
+              <h3 class="font-heading text-2xl font-bold uppercase text-white">Women's Fragrance Collection</h3>
+            </div>
+            <div class="py-12 text-center text-brand-muted space-y-2">
+              <span class="material-symbols-outlined text-4xl text-brand-gold/40 mb-2">view_carousel</span>
+              <p class="font-medium text-white">Luxury Perfumes & Floral Blends</p>
+              <p class="text-xs">Collection details will be available shortly.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: LOCATION & CONTACT -->
+    <section id="location" class="py-20 bg-brand-dark border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Details -->
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <h2 class="font-heading text-3xl font-bold uppercase text-white mb-2">Visit Barbershop</h2>
+              <p class="text-brand-muted text-sm">Walk-ins and inquiries welcome.</p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-card border border-white/10">
+                <span class="material-symbols-outlined text-brand-gold text-2xl">location_on</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Address</h4>
+                  <p class="text-brand-muted text-sm">220 Belmore Rd, Riverwood NSW 2210, Australia</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-card border border-white/10">
+                <span class="material-symbols-outlined text-brand-gold text-2xl">call</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Phone</h4>
+                  <a href="tel:0413651248" class="text-brand-gold font-bold hover:underline text-sm">0413 651 248</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-card border border-white/10">
+                <span class="material-symbols-outlined text-brand-gold text-2xl">mail</span>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Email</h4>
+                  <a href="mailto:info@fadezandbladez.com" class="text-brand-gold hover:underline text-sm">info@fadezandbladez.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Map Embed -->
+          <div class="lg:col-span-7 h-[380px] rounded-2xl overflow-hidden border border-brand-gold/30 shadow-2xl">
+            <iframe 
+              title="FADEZ & BLADEZ Location" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.23101902462!2d151.1023!3d-33.9515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b931dc9b28b7%3A0x2300!2s220%20Belmore%20Rd%2C%20Riverwood%20NSW%202210%2C%20Australia!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" 
+              class="w-full h-full border-0 grayscale contrast-125 opacity-90 hover:opacity-100 transition-opacity" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-black border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <div class="flex justify-center items-center gap-3">
+        <div class="w-10 h-10 rounded-full border border-brand-gold/40 bg-black overflow-hidden flex items-center justify-center p-0.5">
+          <img src="12884.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full" />
+        </div>
+        <span class="font-heading font-bold text-lg tracking-wider text-white">FADEZ & BLADEZ</span>
+      </div>
+      <p class="text-brand-muted text-xs tracking-wider uppercase">Look Good • Feel Sharp</p>
+      <div class="text-brand-muted text-xs border-t border-white/5 pt-6">
+        © 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.
       </div>
     </div>
   </footer>
 
-  <script>
-    function updateSummary() {
-      const serviceSelect = document.getElementById('booking-service');
-      const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-      const price = selectedOption.getAttribute('data-price');
-      document.getElementById('summary-price').innerText = '$' + price;
-    }
-
-    function prefillBooking(serviceName, price) {
-      const select = document.getElementById('booking-service');
-      for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].value === serviceName) {
-          select.selectedIndex = i;
-          break;
-        }
-      }
-      updateSummary();
-      document.getElementById('booking-matrix').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function handleReservationSubmit() {
-      const name = document.getElementById('guest-name').value.trim();
-      const phone = document.getElementById('guest-phone').value.trim();
-      if (!name || !phone) {
-        alert('Please provide your name and contact number.');
-        return;
-      }
-      alert("Confirmed for " + name + "! SMS sent to " + phone + ".");
-    }
-  </script>
 </body>
-</html>
+</html> 
