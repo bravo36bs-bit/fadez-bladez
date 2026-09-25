@@ -58,6 +58,33 @@
     .page.active {
       display: block;
     }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+    }
+    .mobile-menu.active {
+      max-height: 400px;
+    }
+    .mobile-menu button {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+      color: #8a8a8a;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mobile-menu button:hover {
+      background-color: rgba(201, 169, 97, 0.1);
+      color: #c9a961;
+    }
   </style>
 </head>
 <body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
@@ -101,6 +128,11 @@
         </button>
       </nav>
 
+      <!-- MOBILE MENU BUTTON -->
+      <button onclick="toggleMobileMenu()" class="md:hidden flex items-center">
+        <span class="material-symbols-outlined text-2xl text-brand-gold">menu</span>
+      </button>
+
       <!-- CALL BUTTON -->
       <div>
         <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-md">
@@ -111,6 +143,30 @@
 
     </div>
   </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu md:hidden bg-brand-dark border-b border-brand-gold/20">
+    <button onclick="showPage('home'); toggleMobileMenu();" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-base text-brand-gold">home</span>
+      <span>Home</span>
+    </button>
+    <button onclick="showPage('prices'); toggleMobileMenu();" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
+      <span>Prices</span>
+    </button>
+    <button onclick="showPage('items'); toggleMobileMenu();" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
+      <span>Items</span>
+    </button>
+    <button onclick="showPage('fragrances'); toggleMobileMenu();" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-base text-brand-gold">air</span>
+      <span>Fragrances</span>
+    </button>
+    <button onclick="showPage('contact'); toggleMobileMenu();" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
+      <span>Contact</span>
+    </button>
+  </div>
 
   <main class="flex-grow">
 
@@ -504,6 +560,11 @@
         activePage.classList.add('active');
         window.scrollTo(0, 0);
       }
+    }
+
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
     }
     
     // عرض صفحة Home بشكل افتراضي عند التحميل
