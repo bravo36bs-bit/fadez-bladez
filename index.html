@@ -107,6 +107,17 @@
     .sidebar-overlay.active {
       display: block;
     }
+    img[src*="images/"] {
+      background-color: #ffffff;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
   </style>
 </head>
 <body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
@@ -336,12 +347,16 @@
                 <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
               </li>
               <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-300 font-medium">Kids Zero or Skin Fade</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
                 <span class="text-gray-300 font-medium">Hair Colour</span>
                 <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
               </li>
               <li class="flex justify-between items-center border-b border-white/5 pb-2">
                 <span class="text-gray-300 font-medium">Senior Haircut</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
               </li>
               <li class="flex justify-between items-center">
                 <span class="text-gray-300 font-medium">Hair Wash</span>
@@ -420,39 +435,153 @@
           <p class="text-brand-muted text-sm mt-4">Premium grooming products and essentials available at our parlour.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
-              <span class="material-symbols-outlined text-5xl text-brand-gold/50">dry</span>
-            </div>
-            <h3 class="font-heading font-bold text-white text-lg mb-2">Hair Styling Products</h3>
-            <p class="text-xs text-brand-muted mb-4 flex-grow">Premium pomades, gels, and styling products for the perfect finish.</p>
-            <div class="pt-4 border-t border-brand-gold/20">
-              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
-            </div>
+        <!-- CATEGORY: HAIR STYLING PRODUCTS -->
+        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
+          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+            <span class="material-symbols-outlined text-brand-gold text-2xl">dry</span>
+            <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Styling Products</h3>
           </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            <!-- Product: Curl Cream -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13112.png" alt="Curl Cream" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Curl Cream</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
+            </div>
 
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
-              <span class="material-symbols-outlined text-5xl text-brand-gold/50">sanitizer</span>
+            <!-- Product: Sea Salt Spray -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13113.png" alt="Sea Salt Spray" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Sea Salt Spray</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
             </div>
-            <h3 class="font-heading font-bold text-white text-lg mb-2">Beard Oils & Balms</h3>
-            <p class="text-xs text-brand-muted mb-4 flex-grow">Luxurious beard care products to keep your beard healthy and sharp.</p>
-            <div class="pt-4 border-t border-brand-gold/20">
-              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
-            </div>
-          </div>
 
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow flex flex-col sm:col-span-2 lg:col-span-1">
-            <div class="w-full aspect-square bg-brand-black/60 rounded-xl mb-4 flex items-center justify-center border border-brand-gold/20">
-              <span class="material-symbols-outlined text-5xl text-brand-gold/50">content_cut</span>
+            <!-- Product: Styling Hair Wax -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13114.png" alt="Styling Hair Wax" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Hair Wax</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
             </div>
-            <h3 class="font-heading font-bold text-white text-lg mb-2">Grooming Essentials</h3>
-            <p class="text-xs text-brand-muted mb-4 flex-grow">Complete grooming kit with scissors, razors, and professional tools.</p>
-            <div class="pt-4 border-t border-brand-gold/20">
-              <p class="text-brand-gold font-bold text-sm">Available In Store</p>
+
+            <!-- Product: Styling Texture Powder -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13123.png" alt="Styling Texture Powder" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Texture Powder</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
+            </div>
+
+            <!-- Product: Styling Hair Wax (Variant) -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13121.png" alt="Styling Hair Wax" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Hair Wax</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
+            </div>
+
+            <!-- Product: Hair Texture Powder (Variant) -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13122.png" alt="Hair Texture Powder" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Hair Texture Powder</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
             </div>
           </div>
+          <p class="text-xs text-brand-muted text-center">Professional-grade styling products for all hair types and styles</p>
+        </div>
+
+        <!-- CATEGORY: HAIR CARE -->
+        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
+          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+            <span class="material-symbols-outlined text-brand-gold text-2xl">spa</span>
+            <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Care</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
+            <!-- Product: Anti-Dandruff Shampoo -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13115.png" alt="Anti-Dandruff Shampoo" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Anti-Dandruff Shampoo</h4>
+              <p class="text-brand-gold font-bold text-xs">$35 AUD</p>
+            </div>
+
+            <!-- Product: Hair Conditioner -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13117.png" alt="Hair Conditioner" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Hair Conditioner</h4>
+              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
+            </div>
+
+            <!-- Product: Black Hair Shampoo -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13118.png" alt="Black Hair Shampoo" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Black Hair Shampoo</h4>
+              <p class="text-brand-gold font-bold text-xs">$35 AUD</p>
+            </div>
+          </div>
+          <p class="text-xs text-brand-muted text-center">Nourishing formulas for healthy, shiny, and well-maintained hair</p>
+        </div>
+
+        <!-- CATEGORY: FRAGRANCES & AFTERSHAVE -->
+        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
+          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+            <span class="material-symbols-outlined text-brand-gold text-2xl">air</span>
+            <h3 class="font-heading text-xl font-bold uppercase text-white">Fragrances & Aftershave</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 max-w-2xl mx-auto">
+            <!-- Product: Soothing Aftershave -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13120.png" alt="Soothing Aftershave" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Soothing Aftershave</h4>
+              <p class="text-brand-gold font-bold text-xs">$20 AUD</p>
+            </div>
+
+            <!-- Product: Perfumed Cologne -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13119.png" alt="Perfumed Cologne" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Perfumed Cologne</h4>
+              <p class="text-brand-gold font-bold text-xs">$20 AUD</p>
+            </div>
+          </div>
+          <p class="text-xs text-brand-muted text-center">Refreshing colognes and aftershaves for a premium finishing touch</p>
+        </div>
+
+        <!-- CATEGORY: BEARD CARE -->
+        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
+          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+            <span class="material-symbols-outlined text-brand-gold text-2xl">beard</span>
+            <h3 class="font-heading text-xl font-bold uppercase text-white">Beard Care</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-1 gap-4 sm:gap-6 mb-8 max-w-sm mx-auto">
+            <!-- Product: Beard Package -->
+            <div class="flex flex-col items-center text-center">
+              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
+                <img src="images/13116.png" alt="Beard Package" class="h-full object-contain"/>
+              </div>
+              <h4 class="font-heading font-bold text-white text-sm mb-1">Beard Package</h4>
+              <p class="text-brand-muted text-xs mb-2">Shampoo, Oil & Balm</p>
+              <p class="text-brand-gold font-bold text-xs">$50 AUD</p>
+            </div>
+          </div>
+          <p class="text-xs text-brand-muted text-center">Premium beard care set for complete grooming and maintenance</p>
         </div>
 
         <!-- SHOP ESSENTIALS PRICING -->
@@ -475,18 +604,8 @@
                 <span class="text-gray-300 font-medium">Sea Salt Spray</span>
                 <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
               </li>
-              <li class="flex justify-between items-center">
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
                 <span class="text-gray-300 font-medium">Curl Cream</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-            </ul>
-            <ul class="space-y-4 text-sm">
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Anti-Dandruff Shampoo</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Hair Conditioner</span>
                 <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
               </li>
               <li class="flex justify-between items-center border-b border-white/5 pb-2">
@@ -499,6 +618,24 @@
                   <span class="text-xs text-brand-muted">Shampoo, Oil & Balm</span>
                 </div>
                 <span class="font-heading font-bold text-brand-gold text-base">$50 AUD</span>
+              </li>
+            </ul>
+            <ul class="space-y-4 text-sm">
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-300 font-medium">Anti-Dandruff Shampoo</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-300 font-medium">Black Hair Shampoo</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-gray-300 font-medium">Hair Conditioner</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-300 font-medium">Perfumed Cologne</span>
+                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
               </li>
             </ul>
           </div>
@@ -570,7 +707,7 @@
             </div>
 
             <div class="space-y-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-gold/20">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-brand-gold/20">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">location_on</span>
                 <div>
                   <h4 class="font-bold text-white text-xs uppercase">Address</h4>
@@ -578,7 +715,7 @@
                 </div>
               </div>
 
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-card border border-brand-gold/20">
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-brand-gold/20">
                 <span class="material-symbols-outlined text-brand-gold text-2xl">call</span>
                 <div>
                   <h4 class="font-bold text-white text-xs uppercase">Phone</h4>
@@ -593,7 +730,7 @@
             <iframe 
               title="FADEZ & BLADEZ Location" 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.23!2d151.1023!3d-33.9515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b931dc9b28b7%3A0x2300!2s220%20Belmore%20Rd%20Riverwood%20NSW%202210!5e0!3m2!1sen!2sau!4v1694000000000" 
-              class="w-full h-full border-0 grayscale opacity-90 hover:opacity-100 transition-opacity" 
+              class="w-full h-full border-0 opacity-90 hover:opacity-100 transition-opacity" 
               allowfullscreen="" 
               loading="lazy">
             </iframe>
