@@ -1,800 +1,900 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth overflow-x-hidden">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FADEZ & BLADEZ BARBERSHOP | Riverwood</title>
-  <meta name="description" content="FADEZ & BLADEZ BARBERSHOP in Riverwood NSW. Precision Haircuts, Beard Sculpting, Grooming Essentials, and Fine Fragrances. Look Good • Feel Sharp."/>
-  
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              black: "#0a0b0d",
-              dark: "#0f1113",
-              card: "#131618",
-              gold: "#c9a961",
-              goldHover: "#d4b570",
-              goldDark: "#9d7d47",
-              text: "#e8e8e8",
-              muted: "#8a8a8a"
-            }
-          },
-          fontFamily: {
-            heading: ['Cinzel', 'serif'],
-            body: ['Plus Jakarta Sans', 'sans-serif']
-          }
-        }
+ <meta charset="utf-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>FADEZ & BLADEZ BARBERSHOP | Riverwood</title>
+ <meta name="description" content="FADEZ & BLADEZ BARBERSHOP in Riverwood NSW. Precision Haircuts, Beard Sculpting, Grooming Essentials, and Fine Fragrances. Look Good • Feel Sharp."/>
+ 
+ <!-- Fonts & Icons -->
+ <link rel="preconnect" href="https://fonts.googleapis.com"/>
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+ <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+ 
+ <!-- Tailwind CSS CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+  tailwind.config = {
+   darkMode: "class",
+   theme: {
+    extend: {
+     colors: {
+      brand: {
+       black: "#0a0b0d",
+       dark: "#0f1113",
+       card: "#131618",
+       gold: "#c9a961",
+       goldHover: "#d4b570",
+       goldDark: "#9d7d47",
+       text: "#e8e8e8",
+       muted: "#8a8a8a"
       }
-    };
-  </script>
-  <style>
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0b0d; }
-    ::-webkit-scrollbar-thumb { background: #c9a961; border-radius: 3px; }
-    .gold-glow {
-      box-shadow: 0 0 20px rgba(201, 169, 97, 0.15);
+     },
+     fontFamily: {
+      heading: ['Cinzel', 'serif'],
+      body: ['Plus Jakarta Sans', 'sans-serif']
+     }
     }
-    .gold-glow:hover {
-      box-shadow: 0 0 30px rgba(201, 169, 97, 0.25);
-    }
-    .gradient-gold {
-      background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(201, 169, 97, 0.05));
-    }
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 280px;
-      height: 100vh;
-      background: #0a0b0d;
-      border-left: 2px solid #c9a961;
-      transition: right 0.3s ease-in-out;
-      z-index: 100;
-      overflow-y: auto;
-      padding-top: 80px;
-    }
-    .sidebar.active {
-      right: 0;
-    }
-    .sidebar button {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(201, 169, 97, 0.1);
-      color: #8a8a8a;
-      font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      background: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .sidebar button:hover {
-      background-color: rgba(201, 169, 97, 0.1);
-      color: #c9a961;
-    }
-    .sidebar-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 99;
-    }
-    .sidebar-overlay.active {
-      display: block;
-    }
-    img[src*="images/"] {
-      background-color: #ffffff;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      padding: 0;
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-    }
-  </style>
+   }
+  };
+ </script>
+ <style>
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0a0b0d; }
+  ::-webkit-scrollbar-thumb { background: #c9a961; border-radius: 3px; }
+  .gold-glow {
+   box-shadow: 0 0 20px rgba(201, 169, 97, 0.15);
+  }
+  .gold-glow:hover {
+   box-shadow: 0 0 30px rgba(201, 169, 97, 0.25);
+  }
+  .gradient-gold {
+   background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(201, 169, 97, 0.05));
+  }
+  .page {
+   display: none;
+  }
+  .page.active {
+   display: block;
+  }
+  .sidebar {
+   position: fixed;
+   top: 0;
+   right: -300px;
+   width: 280px;
+   height: 100vh;
+   background: #0a0b0d;
+   border-left: 2px solid #c9a961;
+   transition: right 0.3s ease-in-out;
+   z-index: 100;
+   overflow-y: auto;
+   padding-top: 80px;
+  }
+  .sidebar.active {
+   right: 0;
+  }
+  .sidebar button {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   width: 100%;
+   padding: 16px 20px;
+   border-bottom: 1px solid rgba(201, 169, 97, 0.1);
+   color: #8a8a8a;
+   font-weight: 600;
+   font-size: 12px;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   background: none;
+   cursor: pointer;
+   transition: all 0.2s;
+  }
+  .sidebar button:hover {
+   background-color: rgba(201, 169, 97, 0.1);
+   color: #c9a961;
+  }
+  .sidebar-overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 99;
+  }
+  .sidebar-overlay.active {
+   display: block;
+  }
+  img[src*="images/"] {
+   background-color: #ffffff;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+   padding: 0;
+   border-radius: 0;
+   border: none;
+   box-shadow: none;
+   display: block;
+  }
+ </style>
 </head>
-<body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col">
+<body class="bg-brand-black text-brand-text font-body antialiased selection:bg-brand-gold selection:text-brand-black min-h-screen flex flex-col overflow-x-hidden">
 
-  <!-- HEADER / NAVBAR -->
-  <header class="sticky top-0 z-50 bg-brand-black/98 backdrop-blur-md border-b border-brand-gold/20 shadow-xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between gap-4">
-      
-      <!-- LOGO & BRAND NAME -->
-      <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-2 group cursor-pointer flex-shrink-0">
-        <div class="relative w-14 h-14 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
-          <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover"/>
-        </div>
-        <div class="flex flex-col">
-          <span class="font-heading font-bold text-sm sm:text-base tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
-          <span class="text-[8px] tracking-[0.2em] text-brand-gold font-medium uppercase">Barbershop</span>
-        </div>
-      </a>
+ <!-- HEADER / NAVBAR -->
+ <header class="sticky top-0 z-50 bg-brand-black/98 backdrop-blur-md border-b border-brand-gold/20 shadow-xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between gap-4">
+   
+   <!-- LOGO & BRAND NAME -->
+   <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-2 group cursor-pointer flex-shrink-0">
+    <div class="relative w-14 h-14 rounded-full border-2 border-brand-gold bg-black flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform overflow-hidden">
+     <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full"/>
+    </div>
+    <div class="flex flex-col">
+     <span class="font-heading font-bold text-sm sm:text-base tracking-widest text-white group-hover:text-brand-gold transition-colors">FADEZ & BLADEZ</span>
+     <span class="text-[8px] tracking-[0.2em] text-brand-gold font-medium uppercase">Barbershop</span>
+    </div>
+   </a>
 
-      <!-- NAVIGATION LINKS -->
-      <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs font-semibold uppercase tracking-wider text-brand-muted flex-1 justify-center">
-        <button onclick="showPage('home')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-brand-gold">home</span>
-          <span>Home</span>
-        </button>
-        <button onclick="showPage('prices')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
-          <span>Prices</span>
-        </button>
-        <button onclick="showPage('items')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
-          <span>Items</span>
-        </button>
-        <button onclick="showPage('fragrances')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-brand-gold">air</span>
-          <span>Fragrances</span>
-        </button>
-        <button onclick="showPage('contact')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
-          <span>Contact</span>
-        </button>
-      </nav>
+   <!-- NAVIGATION LINKS -->
+   <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-xs font-semibold uppercase tracking-wider text-brand-muted flex-1 justify-center">
+    <button onclick="showPage('home')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
+     <span class="material-symbols-outlined text-base text-brand-gold">home</span>
+     <span>Home</span>
+    </button>
+    <button onclick="showPage('prices')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
+     <span class="material-symbols-outlined text-base text-brand-gold">payments</span>
+     <span>Prices</span>
+    </button>
+    <button onclick="showPage('items')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
+     <span class="material-symbols-outlined text-base text-brand-gold">shopping_bag</span>
+     <span>Items</span>
+    </button>
+    <button onclick="showPage('fragrances')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
+     <span class="material-symbols-outlined text-base text-brand-gold">air</span>
+     <span>Fragrances</span>
+    </button>
+    <button onclick="showPage('contact')" class="flex items-center gap-1.5 hover:text-brand-gold transition-colors cursor-pointer whitespace-nowrap">
+     <span class="material-symbols-outlined text-base text-brand-gold">location_on</span>
+     <span>Contact</span>
+    </button>
+   </nav>
 
-      <!-- CALL BUTTON -->
-      <div class="flex items-center gap-2">
-        <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-md whitespace-nowrap">
-          <span class="material-symbols-outlined text-base">call</span>
-          <span class="hidden sm:inline">Call Now</span>
-        </a>
-        
-        <!-- SIDEBAR MENU BUTTON (MOBILE) -->
-        <button onclick="toggleSidebar()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-brand-gold/10 transition-colors">
-          <span class="material-symbols-outlined text-2xl text-brand-gold">menu</span>
-        </button>
+   <!-- CALL BUTTON -->
+   <div class="flex items-center gap-2">
+    <a href="tel:0413651248" class="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-md whitespace-nowrap">
+     <span class="material-symbols-outlined text-base">call</span>
+     <span class="hidden sm:inline">Call Now</span>
+    </a>
+    
+    <!-- SIDEBAR MENU BUTTON (MOBILE) -->
+    <button onclick="toggleSidebar()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-brand-gold/10 transition-colors">
+     <span class="material-symbols-outlined text-2xl text-brand-gold">menu</span>
+    </button>
+   </div>
+
+  </div>
+ </header>
+
+ <!-- SIDEBAR MENU OVERLAY -->
+ <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+ <!-- SIDEBAR MENU -->
+ <div id="sidebar" class="sidebar md:hidden">
+  <button onclick="showPage('home'); toggleSidebar();">
+   <span class="material-symbols-outlined text-lg text-brand-gold">home</span>
+   <span>Home</span>
+  </button>
+  <button onclick="showPage('prices'); toggleSidebar();">
+   <span class="material-symbols-outlined text-lg text-brand-gold">payments</span>
+   <span>Prices</span>
+  </button>
+  <button onclick="showPage('items'); toggleSidebar();">
+   <span class="material-symbols-outlined text-lg text-brand-gold">shopping_bag</span>
+   <span>Items</span>
+  </button>
+  <button onclick="showPage('fragrances'); toggleSidebar();">
+   <span class="material-symbols-outlined text-lg text-brand-gold">air</span>
+   <span>Fragrances</span>
+  </button>
+  <button onclick="showPage('contact'); toggleSidebar();">
+   <span class="material-symbols-outlined text-lg text-brand-gold">location_on</span>
+   <span>Contact</span>
+  </button>
+ </div>
+
+ <main class="flex-grow">
+
+  <!-- PAGE: HOME -->
+  <div id="home-page" class="page">
+
+  <!-- HERO SECTION (HOME) -->
+  <section id="home" class="relative py-20 lg:py-28 gradient-gold border-b border-brand-gold/10">
+   <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+    
+    <!-- Big Display Logo Header -->
+    <div class="mx-auto w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-brand-gold p-1 bg-black mb-8 gold-glow inline-block overflow-hidden">
+     <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full p-0"/>
+    </div>
+
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
+     <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+     220 Belmore Rd, Riverwood NSW
+    </div>
+
+    <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wider text-white uppercase mb-4 leading-tight">
+     LOOK GOOD <span class="text-brand-gold">•</span> FEEL SHARP
+    </h1>
+    
+    <p class="text-brand-muted text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed">
+     Premium Barbering, Hair Sculpting & Luxury Grooming in Riverwood.
+    </p>
+
+    <!-- Direct Action Buttons (Call & Google Maps) -->
+    <div class="flex flex-wrap items-center justify-center gap-4">
+     <a href="tel:0413651248" class="bg-brand-gold text-brand-black font-bold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg">call</span>
+      0413 651 248
+     </a>
+     <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" rel="noopener noreferrer" class="border border-brand-gold/40 text-white font-semibold px-7 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-gold/10 transition-all flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg text-brand-gold">map</span>
+      Google Maps
+     </a>
+    </div>
+
+   </div>
+  </section>
+
+  <!-- SECTION 1: SERVICES OVERVIEW -->
+  <section class="py-20 bg-brand-black border-b border-brand-gold/10">
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-16">
+     <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white mb-4">Our Services</h2>
+     <div class="w-12 h-1 bg-brand-gold mx-auto rounded-full mb-6"></div>
+     <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
+      At FADEZ & BLADEZ, we deliver precision haircuts, expert beard sculpting, and premium grooming services. Every service is crafted with meticulous attention to detail, ensuring you look impeccable and feel confident.
+     </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+     
+     <div class="bg-brand-card p-8 rounded-2xl gold-glow text-center">
+      <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+       <span class="material-symbols-outlined text-3xl text-brand-gold">content_cut</span>
       </div>
+      <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Precision Haircuts</h3>
+      <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+       Expert haircuts tailored to your style. From classic cuts to modern designs, we ensure every fade is perfect.
+      </p>
+     </div>
+
+     <div class="bg-brand-card p-8 rounded-2xl gold-glow text-center">
+      <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+       <span class="material-symbols-outlined text-3xl text-brand-gold">face</span>
+      </div>
+      <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Beard Sculpting</h3>
+      <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+       Premium beard care and sculpting. Shape, trim, and maintain your beard with professional expertise.
+      </p>
+     </div>
+
+     <div class="bg-brand-card p-8 rounded-2xl gold-glow text-center">
+      <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
+       <span class="material-symbols-outlined text-3xl text-brand-gold">star</span>
+      </div>
+      <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Luxury Grooming</h3>
+      <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+       Complete grooming packages including hair coloring, styling, and premium treatments.
+      </p>
+     </div>
 
     </div>
-  </header>
 
-  <!-- SIDEBAR MENU OVERLAY -->
-  <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 text-center">
+     <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Ready to Transform Your Look?</p>
+     <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+      <span class="material-symbols-outlined text-lg">call</span>
+      Call Us Today: 0413 651 248
+     </a>
+    </div>
 
-  <!-- SIDEBAR MENU -->
-  <div id="sidebar" class="sidebar md:hidden">
-    <button onclick="showPage('home'); toggleSidebar();">
-      <span class="material-symbols-outlined text-lg text-brand-gold">home</span>
-      <span>Home</span>
-    </button>
-    <button onclick="showPage('prices'); toggleSidebar();">
-      <span class="material-symbols-outlined text-lg text-brand-gold">payments</span>
-      <span>Prices</span>
-    </button>
-    <button onclick="showPage('items'); toggleSidebar();">
-      <span class="material-symbols-outlined text-lg text-brand-gold">shopping_bag</span>
-      <span>Items</span>
-    </button>
-    <button onclick="showPage('fragrances'); toggleSidebar();">
-      <span class="material-symbols-outlined text-lg text-brand-gold">air</span>
-      <span>Fragrances</span>
-    </button>
-    <button onclick="showPage('contact'); toggleSidebar();">
-      <span class="material-symbols-outlined text-lg text-brand-gold">location_on</span>
-      <span>Contact</span>
-    </button>
+   </div>
+  </section>
+
   </div>
 
-  <main class="flex-grow">
+  <!-- PAGE: PRICES -->
+  <div id="prices-page" class="page">
 
-    <!-- PAGE: HOME -->
-    <div id="home-page" class="page">
-
-    <!-- HERO SECTION (HOME) -->
-    <section id="home" class="relative py-20 lg:py-28 overflow-hidden gradient-gold border-b border-brand-gold/10">
-      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-        
-        <!-- Big Display Logo Header -->
-        <div class="mx-auto w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-brand-gold p-1 bg-black mb-8 gold-glow inline-block">
-          <img src="logo.jpg" alt="FADEZ & BLADEZ Logo" class="w-full h-full object-cover rounded-full"/>
-        </div>
-
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
-          <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
-          220 Belmore Rd, Riverwood NSW
-        </div>
-
-        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wider text-white uppercase mb-4 leading-tight">
-          LOOK GOOD <span class="text-brand-gold">•</span> FEEL SHARP
-        </h1>
-        
-        <p class="text-brand-muted text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed">
-          Premium Barbering, Hair Sculpting & Luxury Grooming in Riverwood.
-        </p>
-
-        <!-- Direct Action Buttons (Call & Google Maps) -->
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="tel:0413651248" class="bg-brand-gold text-brand-black font-bold px-8 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">call</span>
-            0413 651 248
-          </a>
-          <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" rel="noopener noreferrer" class="border border-brand-gold/40 text-white font-semibold px-7 py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-brand-gold/10 transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg text-brand-gold">map</span>
-            Google Maps
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 1: SERVICES OVERVIEW -->
-    <section class="py-20 bg-brand-black border-b border-brand-gold/10">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white mb-4">Our Services</h2>
-          <div class="w-12 h-1 bg-brand-gold mx-auto rounded-full mb-6"></div>
-          <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
-            At FADEZ & BLADEZ, we deliver precision haircuts, expert beard sculpting, and premium grooming services. Every service is crafted with meticulous attention to detail, ensuring you look impeccable and feel confident.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
-            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-3xl text-brand-gold">content_cut</span>
-            </div>
-            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Precision Haircuts</h3>
-            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
-              Expert haircuts tailored to your style. From classic cuts to modern designs, we ensure every fade is perfect.
-            </p>
-          </div>
-
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
-            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-3xl text-brand-gold">face</span>
-            </div>
-            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Beard Sculpting</h3>
-            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
-              Premium beard care and sculpting. Shape, trim, and maintain your beard with professional expertise.
-            </p>
-          </div>
-
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow text-center">
-            <div class="w-16 h-16 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-3xl text-brand-gold">star</span>
-            </div>
-            <h3 class="font-heading text-lg font-bold uppercase text-white mb-3">Luxury Grooming</h3>
-            <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
-              Complete grooming packages including hair coloring, styling, and premium treatments.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 border border-brand-gold/20 text-center">
-          <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Ready to Transform Your Look?</p>
-          <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
-            <span class="material-symbols-outlined text-lg">call</span>
-            Call Us Today: 0413 651 248
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    </div>
-
-    <!-- PAGE: PRICES -->
-    <div id="prices-page" class="page">
-
-    <!-- SECTION: PRICES & SERVICES -->
-    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-14">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Pricing</h2>
-          <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <!-- Hair Services -->
-          <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-            <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
-              <span class="material-symbols-outlined text-brand-gold text-2xl">content_cut</span>
-              <h3 class="font-heading text-lg font-bold uppercase text-white">Haircuts</h3>
-            </div>
-            <ul class="space-y-4 text-sm">
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Normal Haircut</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Zero Fade</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Skin Fade</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Crew Cut</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Kids Haircut <span class="text-xs text-brand-muted">(Under 12)</span></span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Kids Zero or Skin Fade</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Hair Colour</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Senior Haircut</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
-              </li>
-              <li class="flex justify-between items-center">
-                <span class="text-gray-300 font-medium">Hair Wash</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$10 AUD</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Beard & Combos -->
-          <div class="space-y-8">
-            
-            <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-              <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
-                <span class="material-symbols-outlined text-brand-gold text-2xl">face</span>
-                <h3 class="font-heading text-lg font-bold uppercase text-white">Beard Care</h3>
-              </div>
-              <ul class="space-y-4 text-sm">
-                <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                  <span class="text-gray-300 font-medium">Beard Shape-Up</span>
-                  <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-                </li>
-                <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                  <span class="text-gray-300 font-medium">Beard Fade & Shape-Up</span>
-                  <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  <span class="text-gray-300 font-medium">Beard Shave with Hot Towel</span>
-                  <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="bg-brand-card p-6 sm:p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-              <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
-                <span class="material-symbols-outlined text-brand-gold text-2xl">star</span>
-                <h3 class="font-heading text-lg font-bold uppercase text-white">Packages</h3>
-              </div>
-              <ul class="space-y-4 text-sm">
-                <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                  <span class="text-gray-300 font-medium">Haircut + Beard</span>
-                  <span class="font-heading font-bold text-brand-gold text-base">$50 AUD</span>
-                </li>
-                <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                  <div>
-                    <span class="text-gray-200 font-semibold block">Full Deluxe Package</span>
-                    <span class="text-xs text-brand-muted">Haircut and Beard with Hot Towel, Facial Scrub & Wax</span>
-                  </div>
-                  <span class="font-heading font-bold text-brand-gold text-lg">$75 AUD</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  <span class="text-gray-300 font-medium">Waxing</span>
-                  <span class="font-heading font-bold text-brand-gold text-base">$10 AUD</span>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    </div>
-
-    <!-- PAGE: ITEMS -->
-    <div id="items-page" class="page">
-
-    <!-- SECTION: SHOP ITEMS -->
-    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-14">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Shop Items</h2>
-          <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
-          <p class="text-brand-muted text-sm mt-4">Premium grooming products and essentials available at our parlour.</p>
-        </div>
-
-        <!-- CATEGORY: HAIR STYLING PRODUCTS -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
-          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
-            <span class="material-symbols-outlined text-brand-gold text-2xl">dry</span>
-            <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Styling Products</h3>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
-            <!-- Product: Curl Cream -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13112.png" alt="Curl Cream" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Curl Cream</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Sea Salt Spray -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13113.png" alt="Sea Salt Spray" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Sea Salt Spray</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Styling Hair Wax -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13114.png" alt="Styling Hair Wax" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Hair Wax</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Styling Texture Powder -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13123.png" alt="Styling Texture Powder" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Texture Powder</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Styling Hair Wax (Variant) -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13121.png" alt="Styling Hair Wax" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Styling Hair Wax</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Hair Texture Powder (Variant) -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13122.png" alt="Hair Texture Powder" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Hair Texture Powder</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-          </div>
-          <p class="text-xs text-brand-muted text-center">Professional-grade styling products for all hair types and styles</p>
-        </div>
-
-        <!-- CATEGORY: HAIR CARE -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
-          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
-            <span class="material-symbols-outlined text-brand-gold text-2xl">spa</span>
-            <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Care</h3>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
-            <!-- Product: Anti-Dandruff Shampoo -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13115.png" alt="Anti-Dandruff Shampoo" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Anti-Dandruff Shampoo</h4>
-              <p class="text-brand-gold font-bold text-xs">$35 AUD</p>
-            </div>
-
-            <!-- Product: Hair Conditioner -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13117.png" alt="Hair Conditioner" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Hair Conditioner</h4>
-              <p class="text-brand-gold font-bold text-xs">$25 AUD</p>
-            </div>
-
-            <!-- Product: Black Hair Shampoo -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13118.png" alt="Black Hair Shampoo" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Black Hair Shampoo</h4>
-              <p class="text-brand-gold font-bold text-xs">$35 AUD</p>
-            </div>
-          </div>
-          <p class="text-xs text-brand-muted text-center">Nourishing formulas for healthy, shiny, and well-maintained hair</p>
-        </div>
-
-        <!-- CATEGORY: FRAGRANCES & AFTERSHAVE -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
-          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
-            <span class="material-symbols-outlined text-brand-gold text-2xl">air</span>
-            <h3 class="font-heading text-xl font-bold uppercase text-white">Fragrances & Aftershave</h3>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 max-w-2xl mx-auto">
-            <!-- Product: Soothing Aftershave -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13120.png" alt="Soothing Aftershave" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Soothing Aftershave</h4>
-              <p class="text-brand-gold font-bold text-xs">$20 AUD</p>
-            </div>
-
-            <!-- Product: Perfumed Cologne -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13119.png" alt="Perfumed Cologne" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Perfumed Cologne</h4>
-              <p class="text-brand-gold font-bold text-xs">$20 AUD</p>
-            </div>
-          </div>
-          <p class="text-xs text-brand-muted text-center">Refreshing colognes and aftershaves for a premium finishing touch</p>
-        </div>
-
-        <!-- CATEGORY: BEARD CARE -->
-        <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow mb-8">
-          <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
-            <span class="material-symbols-outlined text-brand-gold text-2xl">beard</span>
-            <h3 class="font-heading text-xl font-bold uppercase text-white">Beard Care</h3>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-1 gap-4 sm:gap-6 mb-8 max-w-sm mx-auto">
-            <!-- Product: Beard Package -->
-            <div class="flex flex-col items-center text-center">
-              <div class="w-full h-56 sm:h-64 bg-white rounded-xl mb-3 flex items-center justify-center border border-brand-gold/20 overflow-hidden">
-                <img src="images/13116.png" alt="Beard Package" class="h-full object-contain"/>
-              </div>
-              <h4 class="font-heading font-bold text-white text-sm mb-1">Beard Package</h4>
-              <p class="text-brand-muted text-xs mb-2">Shampoo, Oil & Balm</p>
-              <p class="text-brand-gold font-bold text-xs">$50 AUD</p>
-            </div>
-          </div>
-          <p class="text-xs text-brand-muted text-center">Premium beard care set for complete grooming and maintenance</p>
-        </div>
-
-        <!-- SHOP ESSENTIALS PRICING -->
-        <div class="mt-12 bg-brand-card p-8 rounded-2xl border border-brand-gold/20 gold-glow">
-          <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
-            <span class="material-symbols-outlined text-brand-gold text-2xl">shopping_bag</span>
-            <h3 class="font-heading text-xl font-bold uppercase text-white">Shop Essentials</h3>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ul class="space-y-4 text-sm">
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Styling Hair Wax</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Styling Texture Powder</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Sea Salt Spray</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Curl Cream</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Soothing Aftershave</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
-              </li>
-              <li class="flex justify-between items-center">
-                <div>
-                  <span class="text-gray-200 font-semibold block">Beard Package</span>
-                  <span class="text-xs text-brand-muted">Shampoo, Oil & Balm</span>
-                </div>
-                <span class="font-heading font-bold text-brand-gold text-base">$50 AUD</span>
-              </li>
-            </ul>
-            <ul class="space-y-4 text-sm">
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Anti-Dandruff Shampoo</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Black Hair Shampoo</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
-              </li>
-              <li class="flex justify-between items-center border-b border-white/5 pb-2">
-                <span class="text-gray-300 font-medium">Hair Conditioner</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
-              </li>
-              <li class="flex justify-between items-center">
-                <span class="text-gray-300 font-medium">Perfumed Cologne</span>
-                <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 border border-brand-gold/20 text-center">
-          <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Interested In Any Products?</p>
-          <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
-            <span class="material-symbols-outlined text-lg">call</span>
-            Call Us: 0413 651 248
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    </div>
-
-    <!-- PAGE: FRAGRANCES -->
-    <div id="fragrances-page" class="page">
-
-    <!-- SECTION: FRAGRANCES -->
-    <section class="py-20 bg-brand-black border-t border-brand-gold/10">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-xl mx-auto mb-14">
-          <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Fine Fragrances</h2>
-          <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow">
-            <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-2xl">male</span>
-            </div>
-            <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Men's Fragrances</h3>
-            <p class="text-xs text-brand-muted">Curated Luxury Perfumes & Ouds Available In Parlour.</p>
-          </div>
-
-          <div class="bg-brand-card p-8 rounded-2xl border border-brand-gold/20 text-center gold-glow">
-            <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
-              <span class="material-symbols-outlined text-2xl">female</span>
-            </div>
-            <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Women's Fragrances</h3>
-            <p class="text-xs text-brand-muted">Exclusive Fine Perfumes & Floral Scents Available In Parlour.</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    </div>
-
-    <!-- PAGE: CONTACT -->
-    <div id="contact-page" class="page">
-
-    <!-- SECTION: LOCATION & MAP -->
-    <section class="py-20 bg-brand-dark border-t border-brand-gold/10">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          <div class="lg:col-span-5 space-y-6">
-            <div>
-              <h2 class="font-heading text-2xl sm:text-3xl font-bold uppercase text-white mb-2">Location & Contact</h2>
-              <p class="text-brand-muted text-xs sm:text-sm">Visit our barbershop in Riverwood.</p>
-            </div>
-
-            <div class="space-y-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-brand-gold/20">
-                <span class="material-symbols-outlined text-brand-gold text-2xl">location_on</span>
-                <div>
-                  <h4 class="font-bold text-white text-xs uppercase">Address</h4>
-                  <p class="text-brand-muted text-xs sm:text-sm">220 Belmore Rd, Riverwood NSW 2210</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-brand-gold/20">
-                <span class="material-symbols-outlined text-brand-gold text-2xl">call</span>
-                <div>
-                  <h4 class="font-bold text-white text-xs uppercase">Phone</h4>
-                  <a href="tel:0413651248" class="text-brand-gold font-bold hover:underline text-sm">0413 651 248</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Google Maps Embed -->
-          <div class="lg:col-span-7 h-[350px] rounded-2xl overflow-hidden border border-brand-gold/30 shadow-2xl">
-            <iframe 
-              title="FADEZ & BLADEZ Location" 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.23!2d151.1023!3d-33.9515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b931dc9b28b7%3A0x2300!2s220%20Belmore%20Rd%20Riverwood%20NSW%202210!5e0!3m2!1sen!2sau!4v1694000000000" 
-              class="w-full h-full border-0 opacity-90 hover:opacity-100 transition-opacity" 
-              allowfullscreen="" 
-              loading="lazy">
-            </iframe>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-brand-black border-t border-brand-gold/20 py-10">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center space-y-6">
-        <div class="flex justify-center items-center gap-3">
-          <div class="w-8 h-8 rounded-full border border-brand-gold bg-black overflow-hidden p-0.5">
-            <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-full"/>
-          </div>
-          <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
-        </div>
-        <p class="text-brand-gold text-[10px] tracking-widest uppercase font-semibold">Look Good • Feel Sharp</p>
-        
-        <!-- Social Media Links -->
-        <div class="flex justify-center items-center gap-6 py-4 border-y border-brand-gold/20">
-          <a href="https://www.instagram.com/fadezandbladez" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-brand-gold/20 border-2 border-brand-gold flex items-center justify-center hover:bg-brand-gold/35 transition-all shadow-lg">
-            <span class="material-symbols-outlined text-3xl text-brand-gold">camera_alt</span>
-          </a>
-        </div>
-
-        <p class="text-brand-muted/60 text-[11px]">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function showPage(pageName) {
-      // إخفاء جميع الصفحات
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
-      
-      // إظهار الصفحة المطلوبة
-      const activePage = document.getElementById(pageName + '-page');
-      if (activePage) {
-        activePage.classList.add('active');
-        window.scrollTo(0, 0);
-      }
-    }
-
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('sidebarOverlay');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
+  <!-- SECTION: PRICES & SERVICES -->
+  <section class="py-20 bg-brand-black border-t border-brand-gold/10">
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    // عرض صفحة Home بشكل افتراضي عند التحميل
-    document.addEventListener('DOMContentLoaded', function() {
-      showPage('home');
-    });
-  </script>
+    <div class="text-center max-w-xl mx-auto mb-14">
+     <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Pricing</h2>
+     <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+     
+     <!-- Hair Services -->
+     <div class="bg-brand-card p-6 sm:p-8 rounded-2xl gold-glow">
+      <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
+       <span class="material-symbols-outlined text-brand-gold text-2xl">content_cut</span>
+       <h3 class="font-heading text-lg font-bold uppercase text-white">Haircuts</h3>
+      </div>
+      <ul class="space-y-4 text-sm">
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Normal Haircut</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Zero Fade</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Skin Fade</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Crew Cut</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Kids Haircut <span class="text-xs text-brand-muted">(Under 12)</span></span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Kids Zero or Skin Fade</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Hair Colour</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Senior Haircut</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
+       </li>
+       <li class="flex justify-between items-center">
+        <span class="text-gray-300 font-medium">Hair Wash</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$10 AUD</span>
+       </li>
+      </ul>
+     </div>
+
+     <!-- Beard & Combos -->
+     <div class="space-y-8">
+      
+      <div class="bg-brand-card p-6 sm:p-8 rounded-2xl gold-glow">
+       <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
+        <span class="material-symbols-outlined text-brand-gold text-2xl">face</span>
+        <h3 class="font-heading text-lg font-bold uppercase text-white">Beard Care</h3>
+       </div>
+       <ul class="space-y-4 text-sm">
+        <li class="flex justify-between items-center border-b border-white/5 pb-2">
+         <span class="text-gray-300 font-medium">Beard Shape-Up</span>
+         <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+        </li>
+        <li class="flex justify-between items-center border-b border-white/5 pb-2">
+         <span class="text-gray-300 font-medium">Beard Fade & Shape-Up</span>
+         <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
+        </li>
+        <li class="flex justify-between items-center">
+         <span class="text-gray-300 font-medium">Beard Shave with Hot Towel</span>
+         <span class="font-heading font-bold text-brand-gold text-base">$30 AUD</span>
+        </li>
+       </ul>
+      </div>
+
+      <div class="bg-brand-card p-6 sm:p-8 rounded-2xl gold-glow">
+       <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
+        <span class="material-symbols-outlined text-brand-gold text-2xl">star</span>
+        <h3 class="font-heading text-lg font-bold uppercase text-white">Packages</h3>
+       </div>
+       <ul class="space-y-4 text-sm">
+        <li class="flex justify-between items-center border-b border-white/5 pb-2">
+         <span class="text-gray-300 font-medium">Haircut + Beard</span>
+         <span class="font-heading font-bold text-brand-gold text-base">$50 AUD</span>
+        </li>
+        <li class="flex justify-between items-center border-b border-white/5 pb-2">
+         <div>
+          <span class="text-gray-200 font-semibold block">Full Deluxe Package</span>
+          <span class="text-xs text-brand-muted">Haircut and Beard with Hot Towel, Facial Scrub & Wax</span>
+         </div>
+         <span class="font-heading font-bold text-brand-gold text-lg">$75 AUD</span>
+        </li>
+        <li class="flex justify-between items-center">
+         <span class="text-gray-300 font-medium">Waxing</span>
+         <span class="font-heading font-bold text-brand-gold text-base">$10 AUD</span>
+        </li>
+       </ul>
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+  </section>
+
+  </div>
+
+  <!-- PAGE: ITEMS -->
+  <div id="items-page" class="page">
+
+  <!-- SECTION: SHOP ITEMS -->
+  <section class="py-20 bg-brand-black border-t border-brand-gold/10">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-xl mx-auto mb-14">
+     <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Shop Items</h2>
+     <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
+     <p class="text-brand-muted text-sm mt-4">Premium grooming products and essentials available at our parlour.</p>
+    </div>
+
+    <!-- 1. CATEGORY: CONDITIONER (3 VARIANTS) -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">local_florist</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Conditioner</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4 mb-8">
+      <!-- Conditioner Gold -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13166.png" alt="Conditioner Gold" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Conditioner Gold</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+      <!-- Conditioner Keratin -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13164.png" alt="Conditioner Keratin" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Conditioner Keratin</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+      <!-- Conditioner Spray -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13165.png" alt="Conditioner Spray" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Conditioner Spray</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Professional conditioners in three premium formulations</p>
+    </div>
+
+    <!-- 2. CATEGORY: AFTERSHAVE & COLOGNE -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">air</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Aftershave & Cologne</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mb-8">
+      <!-- Aftershave Purple -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13182.png" alt="Aftershave Purple" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Aftershave Tattoo Purple</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$20 AUD</p>
+      </div>
+      <!-- Cologne Gold -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13180.png" alt="Cologne Gold" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Cologne Tattoo Gold</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$20 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Refreshing colognes and aftershaves for premium finishing</p>
+    </div>
+
+    <!-- 3. CATEGORY: HAIR SHAMPOO (2 VARIANTS) -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">shower</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Shampoo</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mb-8">
+      <!-- Black Hair Shampoo -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13171.png" alt="Black Hair Shampoo" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Dexe Black Hair Shampoo</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$35 AUD</p>
+      </div>
+      <!-- Brown Hair Shampoo -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13181.png" alt="Brown Hair Shampoo" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Dexe Brown Hair Shampoo</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$35 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Professional hair shampoos for color enhancement</p>
+    </div>
+
+    <!-- 4. CATEGORY: ANTI-DANDRUFF SHAMPOO -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">water_drop</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Anti-Dandruff Shampoo</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-1 gap-2 sm:gap-4 mb-8 max-w-sm mx-auto">
+      <!-- Anti-Dandruff -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13178.png" alt="Anti-Dandruff Shampoo" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Pro Rapid Tattoo Anti-Dandruff</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$35 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Scalp cleanser for dandruff control and prevention</p>
+    </div>
+
+    <!-- 5. CATEGORY: STYLING WAX (SHINY & MATT) -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">style</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Styling Wax</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mb-8">
+      <!-- Wax Shiny -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13161.png" alt="Styling Wax Shiny" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Styling Wax Shiny</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+      <!-- Wax Matt -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13179.png" alt="Filthy Muk Matt" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Filthy Muk Styling Paste Matt</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Premium styling products for every finish and hold</p>
+    </div>
+
+    <!-- 6. CATEGORY: CURL CREAM -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">waves</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Curl Cream</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-1 gap-2 sm:gap-4 mb-8 max-w-sm mx-auto">
+      <!-- Curl Cream -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13183.png" alt="Curl Cream" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Pro Rapid Tattoo Curl Cream</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Leave-in conditioner for curl definition and smoothing</p>
+    </div>
+
+    <!-- 7. CATEGORY: SEA SALT SPRAY -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">ocean</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Sea Salt Spray</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-1 gap-2 sm:gap-4 mb-8 max-w-sm mx-auto">
+      <!-- Sea Salt -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13184.png" alt="Sea Salt Spray" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Pro Rapid Tattoo Sea Salt Spray</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Hair texturizing spray for beachy volume and hold</p>
+    </div>
+
+    <!-- 8. CATEGORY: HAIR TEXTURE POWDER -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">cloud</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Hair Texture Powder</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-1 gap-2 sm:gap-4 mb-8 max-w-sm mx-auto">
+      <!-- Texture Powder -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13163.png" alt="Hair Texture Powder" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">Pro Rapid Tattoo Snowflakes Powder</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$25 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Matte finish powder for instant volume and texture</p>
+    </div>
+
+    <!-- 9. CATEGORY: BEARD CARE SET -->
+    <div class="bg-brand-card p-8 rounded-2xl gold-glow mb-8">
+     <div class="flex items-center gap-3 mb-8 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">beard</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Beard Care Set</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-1 gap-2 sm:gap-4 mb-8 max-w-sm mx-auto">
+      <!-- Beard Set -->
+      <div class="flex flex-col items-center text-center gap-0">
+       <div class="w-full h-96 sm:h-full bg-white flex items-center justify-center p-0 overflow-hidden">
+        <img src="images/13185.png" alt="Beard Care Set" class="w-full h-full object-cover mb-3"/>
+       </div>
+       <h4 class="font-heading font-bold text-white text-sm mt-1 mb-1">RIVARO Beard Care Set Amber</h4>
+       <p class="text-brand-gold font-bold text-xs mt-0">$50 AUD</p>
+      </div>
+     </div>
+     <p class="text-xs text-brand-muted text-center">Premium complete beard grooming and maintenance set</p>
+    </div>
+
+
+
+    <!-- SHOP ESSENTIALS PRICING -->
+    <div class="mt-12 bg-brand-card p-8 rounded-2xl gold-glow">
+     <div class="flex items-center gap-3 mb-6 border-b border-brand-gold/20 pb-4">
+      <span class="material-symbols-outlined text-brand-gold text-2xl">shopping_bag</span>
+      <h3 class="font-heading text-xl font-bold uppercase text-white">Shop Essentials</h3>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <ul class="space-y-4 text-sm">
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Conditioner Gold</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Conditioner Keratin</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Conditioner Spray</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Aftershave Tattoo Purple</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Cologne Tattoo Gold</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$20 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Dexe Black Hair Shampoo</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Dexe Brown Hair Shampoo</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+       <li class="flex justify-between items-center">
+        <span class="text-gray-300 font-medium">Pro Rapid Tattoo Anti-Dandruff</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$35 AUD</span>
+       </li>
+      </ul>
+      <ul class="space-y-4 text-sm">
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Styling Wax Shiny</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Filthy Muk Styling Paste Matt</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Pro Rapid Tattoo Curl Cream</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Pro Rapid Tattoo Sea Salt Spray</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center border-b border-white/5 pb-2">
+        <span class="text-gray-300 font-medium">Hair Texture Powder Snowflakes</span>
+        <span class="font-heading font-bold text-brand-gold text-base">$25 AUD</span>
+       </li>
+       <li class="flex justify-between items-center">
+        <div>
+         <span class="text-gray-200 font-semibold block">RIVARO Beard Care Set</span>
+        </div>
+        <span class="font-heading font-bold text-brand-gold text-base">$50 AUD</span>
+       </li>
+      </ul>
+     </div>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 text-center">
+     <p class="text-brand-muted text-sm mb-4 uppercase tracking-wider font-semibold">Interested In Any Products?</p>
+     <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+      <span class="material-symbols-outlined text-lg">call</span>
+      Call Us: 0413 651 248
+     </a>
+    </div>
+
+   </div>
+  </section>
+
+  </div>
+
+  <!-- PAGE: FRAGRANCES -->
+  <div id="fragrances-page" class="page">
+
+  <!-- SECTION: FRAGRANCES -->
+  <section class="py-20 bg-brand-black border-t border-brand-gold/10">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-xl mx-auto mb-14">
+     <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white">Fine Fragrances</h2>
+     <div class="w-12 h-1 bg-brand-gold mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+     
+     <div class="bg-brand-card p-8 rounded-2xl text-center gold-glow">
+      <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
+       <span class="material-symbols-outlined text-2xl">male</span>
+      </div>
+      <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Men's Fragrances</h3>
+      <p class="text-xs text-brand-muted">Curated Luxury Perfumes & Ouds Available In Parlour.</p>
+     </div>
+
+     <div class="bg-brand-card p-8 rounded-2xl text-center gold-glow">
+      <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold flex items-center justify-center mx-auto mb-4">
+       <span class="material-symbols-outlined text-2xl">female</span>
+      </div>
+      <h3 class="font-heading text-xl font-bold uppercase text-white mb-2">Women's Fragrances</h3>
+      <p class="text-xs text-brand-muted">Exclusive Fine Perfumes & Floral Scents Available In Parlour.</p>
+     </div>
+
+    </div>
+
+   </div>
+  </section>
+
+  </div>
+
+  <!-- PAGE: CONTACT -->
+  <div id="contact-page" class="page">
+
+  <!-- SECTION: LOCATION & MAP -->
+  <section class="py-20 bg-brand-black border-t border-brand-gold/10">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-xl mx-auto mb-14">
+     <h2 class="font-heading text-2xl sm:text-4xl font-bold uppercase tracking-widest text-white mb-2">Location & Contact</h2>
+     <div class="w-12 h-1 bg-brand-gold mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+     
+     <div class="lg:col-span-5 space-y-6">
+      <p class="text-brand-muted text-xs sm:text-sm">Visit our premium barbershop located in the heart of Riverwood. We're conveniently positioned for easy access and ample parking.</p>
+
+      <div class="space-y-4">
+       <div class="flex items-center gap-4 p-6 rounded-2xl bg-brand-card gold-glow border border-brand-gold/20">
+        <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center flex-shrink-0">
+         <span class="material-symbols-outlined text-brand-gold text-2xl">location_on</span>
+        </div>
+        <div>
+         <h4 class="font-heading font-bold text-brand-gold text-xs uppercase tracking-wider">Address</h4>
+         <p class="text-gray-300 text-sm mt-1">220 Belmore Rd, Riverwood NSW 2210</p>
+        </div>
+       </div>
+
+       <div class="flex items-center gap-4 p-6 rounded-2xl bg-brand-card gold-glow border border-brand-gold/20">
+        <div class="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center flex-shrink-0">
+         <span class="material-symbols-outlined text-brand-gold text-2xl">call</span>
+        </div>
+        <div>
+         <h4 class="font-heading font-bold text-brand-gold text-xs uppercase tracking-wider">Phone</h4>
+         <a href="tel:0413651248" class="text-white font-bold hover:text-brand-gold transition-colors text-sm mt-1 inline-block">0413 651 248</a>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <!-- Google Maps Embed -->
+     <div class="lg:col-span-7 h-96 sm:h-[400px] lg:h-[450px] rounded-2xl border border-brand-gold/30 shadow-2xl overflow-hidden gold-glow">
+      <iframe 
+       title="FADEZ & BLADEZ Location" 
+       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.23!2d151.1023!3d-33.9515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b931dc9b28b7%3A0x2300!2s220%20Belmore%20Rd%20Riverwood%20NSW%202210!5e0!3m2!1sen!2sau!4v1694000000000" 
+       class="w-full h-full border-0 opacity-90 hover:opacity-100 transition-opacity" 
+       allowfullscreen="" 
+       loading="lazy">
+      </iframe>
+     </div>
+
+    </div>
+
+    <div class="mt-16 p-8 rounded-2xl bg-gradient-to-r from-brand-gold/10 to-brand-gold/5 text-center">
+     <p class="text-brand-muted text-sm mb-6 uppercase tracking-wider font-semibold">Ready to Visit Us?</p>
+     <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="tel:0413651248" class="inline-flex items-center gap-3 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-goldHover transition-all shadow-lg">
+       <span class="material-symbols-outlined text-lg">call</span>
+       Call: 0413 651 248
+      </a>
+      <a href="https://maps.google.com/?q=220+Belmore+Rd,+Riverwood+NSW+2210" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 border-2 border-brand-gold text-brand-gold font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider hover:bg-brand-gold/10 transition-all">
+       <span class="material-symbols-outlined text-lg">map</span>
+       Get Directions
+      </a>
+     </div>
+    </div>
+
+   </div>
+  </section>
+
+  </div>
+
+ </main>
+
+ <!-- FOOTER -->
+ <footer class="bg-brand-black border-t border-brand-gold/20 py-10">
+  <div class="max-w-7xl mx-auto px-4">
+   <div class="text-center space-y-6">
+    <div class="flex justify-center items-center gap-3">
+     <div class="w-8 h-8 rounded-full border border-brand-gold bg-black p-0.5 overflow-hidden">
+      <img src="logo.jpg" alt="Logo" class="w-full h-full object-cover rounded-full p-0"/>
+     </div>
+     <span class="font-heading font-bold text-base tracking-wider text-white">FADEZ & BLADEZ</span>
+    </div>
+    <p class="text-brand-gold text-[10px] tracking-widest uppercase font-semibold">Look Good • Feel Sharp</p>
+    
+    <!-- Social Media Links -->
+    <div class="flex justify-center items-center gap-6 py-4 border-y border-brand-gold/20">
+     <a href="https://www.instagram.com/fadezandbladez" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-brand-gold/20 border-2 border-brand-gold flex items-center justify-center hover:bg-brand-gold/35 transition-all shadow-lg">
+      <span class="material-symbols-outlined text-3xl text-brand-gold">camera_alt</span>
+     </a>
+    </div>
+
+    <p class="text-brand-muted/60 text-[11px]">© 2026 FADEZ & BLADEZ BARBERSHOP. All rights reserved.</p>
+   </div>
+  </div>
+ </footer>
+
+ <script>
+  function showPage(pageName) {
+   // إخفاء جميع الصفحات
+   const pages = document.querySelectorAll('.page');
+   pages.forEach(page => page.classList.remove('active'));
+   
+   // إظهار الصفحة المطلوبة
+   const activePage = document.getElementById(pageName + '-page');
+   if (activePage) {
+    activePage.classList.add('active');
+    window.scrollTo(0, 0);
+   }
+  }
+
+  function toggleSidebar() {
+   const sidebar = document.getElementById('sidebar');
+   const overlay = document.getElementById('sidebarOverlay');
+   sidebar.classList.toggle('active');
+   overlay.classList.toggle('active');
+  }
+  
+  // عرض صفحة Home بشكل افتراضي عند التحميل
+  document.addEventListener('DOMContentLoaded', function() {
+   showPage('home');
+  });
+ </script>
 
 </body>
 </html>
